@@ -299,27 +299,27 @@ window.ATLAS_DATA = {
       ]
     },
     aesthetics: {
-      asOf: '2024-25', pending: true,
-      marketSize: { value: '≈ $15B+', note: 'medical aesthetics — injectables + energy devices; cash-pay, discretionary; to verify', asOf: '2024', pending: true },
+      asOf: 'FY2024', pending: false,
+      marketSize: { value: '≈ $18B', note: 'global medical aesthetics (injectables + energy devices), 2024 — analyst estimate (DataM Intelligence), NOT a filing figure; treat as approximate. Cash-pay &amp; discretionary', asOf: '2024', pending: true },
       moaClasses: [
         'Botulinum toxin (neurotoxin) injectables',
         'Hyaluronic-acid dermal fillers',
-        'Collagen stimulators (e.g. poly-L-lactic acid)',
+        'Collagen stimulators / biostimulators (e.g. poly-L-lactic acid)',
         'Energy-based devices (body contouring, skin tightening)',
         'Topical &amp; regenerative skincare'
       ],
       landmarkDrugs: [
-        { name: 'Botox / Botox Cosmetic (onabotulinumtoxinA)', moa: 'botulinum toxin — the category-defining neurotoxin, AbbVie / Allergan', asOf: '2026-Q1', pending: true },
-        { name: 'Juvederm', moa: 'hyaluronic-acid dermal filler, AbbVie / Allergan', asOf: '2026-Q1', pending: true },
-        { name: 'Dysport / Restylane', moa: 'neurotoxin / HA filler, Galderma', asOf: '2026-Q1', pending: true },
-        { name: 'Daxxify (daxibotulinumtoxinA)', moa: 'longer-acting neurotoxin challenger, Revance', asOf: '2026-Q1', pending: true }
+        { name: 'Botox Cosmetic (onabotulinumtoxinA)', moa: 'the category-defining aesthetic neurotoxin, AbbVie / Allergan — FY2024 net sales ≈ $2.72B (its separate Botox Therapeutic line, for migraine / spasticity, is larger at ≈ $3.28B)', asOf: 'FY2024', pending: false },
+        { name: 'Juvederm Collection', moa: 'hyaluronic-acid dermal fillers, AbbVie / Allergan — FY2024 net sales ≈ $1.18B (down ~15% on softer consumer demand &amp; destocking)', asOf: 'FY2024', pending: false },
+        { name: 'Dysport / Restylane', moa: 'neurotoxin / HA filler, Galderma Injectable Aesthetics (double-digit growth)', asOf: 'FY2024', pending: false },
+        { name: 'Daxxify (daxibotulinumtoxinA)', moa: 'longer-acting neurotoxin challenger, Revance (acquired by Crown Laboratories, deal announced Aug 2024)', asOf: '2024', pending: false }
       ],
       keyPlayers: [
-        { name: 'AbbVie (Allergan Aesthetics)', franchise: 'Botox, Juvederm, CoolSculpting — the market leader', asOf: '2026-Q1', pending: true },
-        { name: 'Galderma', franchise: 'Dysport, Restylane, Sculptra (IPO 2024)', asOf: '2026-Q1', pending: true },
-        { name: 'Merz Aesthetics', franchise: 'Xeomin, Ultherapy (private)', asOf: '2026-Q1', pending: true },
-        { name: 'Evolus', franchise: 'Jeuveau (neurotoxin)', asOf: '2026-Q1', pending: true },
-        { name: 'Revance', franchise: 'Daxxify (longer-acting neurotoxin)', asOf: '2026-Q1', pending: true }
+        { name: 'AbbVie (Allergan Aesthetics)', franchise: 'market leader — Botox Cosmetic, Juvederm, CoolSculpting; Aesthetics segment FY2024 net revenues ≈ $5.18B (down 2.2%)', asOf: 'FY2024', pending: false },
+        { name: 'Galderma', franchise: 'Dysport, Restylane, Sculptra; FY2024 net sales ≈ $4.41B; IPO on SIX Swiss Exchange Mar 2024 (GALD)', asOf: 'FY2024', pending: false },
+        { name: 'Merz Aesthetics', franchise: 'Xeomin, Belotero, Ultherapy — privately held (revenue not disclosed)', asOf: '2024', pending: true },
+        { name: 'Evolus', franchise: 'Jeuveau ("newtox"); FY2024 net revenue ≈ $266M (+32%)', asOf: 'FY2024', pending: false },
+        { name: 'Revance', franchise: 'Daxxify + RHA fillers; acquired by Crown Laboratories (announced Aug 2024)', asOf: '2024', pending: false }
       ]
     }
   }
