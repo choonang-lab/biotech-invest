@@ -769,6 +769,24 @@ window.ATLAS = {
           ]
         },
         {
+          id: 'neu6',
+          title: 'Special topic — psychedelics: a thinking-gym case study',
+          body: [
+            { p: 'Psychedelics — psilocybin, MDMA, ketamine-derived and next-generation analogs — are in development for depression, PTSD and addiction, all areas of huge unmet need in the CNS graveyard. They are also one of the most hyped, speculative corners of biotech, which makes them a perfect place to apply the whole gym to a single field.' },
+            { h: 'Three features that make them unusual' },
+            { ul: [
+              'The drug-plus-therapy model — many require supervised dosing plus hours of trained-therapist time and clinic infrastructure. You are selling a protocol, not a pill — hard to scale and hard to reimburse (closer to cell therapy\'s delivery problem than to a prescription)',
+              'Regulatory &amp; scheduling overhang — as Schedule I substances, approval requires rescheduling and a fraught FDA/DEA path',
+              'Weak value capture — you cannot patent a naturally-occurring molecule; the real IP is in formulations and next-generation analogs'
+            ] },
+            { h: 'The cautionary tale' },
+            { p: 'In 2024, Lykos Therapeutics\' MDMA-assisted therapy for PTSD received an FDA Complete Response Letter after an advisory committee voted against it — citing functional unblinding (patients could tell whether they got the drug) and trial-conduct concerns. A vivid reminder that a program with dramatic-looking results can still fail the FDA, especially with subjective endpoints and an unusual trial design.' },
+            { h: 'The hype cycle' },
+            { p: 'Psychedelics drew a large speculative wave around 2020-21 (Compass Pathways, ATAI, MindMed and others), then many cratered as timelines slipped and the science proved hard. It is a textbook run through the red-flag, base-rate and buy-the-rumor lessons. The frontier now is "non-hallucinogenic" psychedelics — keeping the antidepressant / neuroplasticity benefit without the trip, which would turn a supervised protocol into a scalable pill. (Ketamine\'s approved cousin, esketamine, already showed a version of the market exists.)' },
+            { callout: 'Psychedelics is where the whole gym meets a hyped, speculative field. Ask the hard questions: can it scale beyond a supervised protocol? Can it clear the FDA\'s subjective-endpoint bar? Is the IP defensible? And what is already priced in? This is exactly the kind of narrative that rewards base-rate discipline and red-flag skepticism over conviction.', kind: 'warn' }
+          ]
+        },
+        {
           id: 'neu5',
           title: 'The CNS investing angle',
           body: [
