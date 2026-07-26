@@ -1,6 +1,6 @@
 /* Network-first service worker: fresh content wins when online, cache serves
    offline. Bump CACHE on release to drop stale entries. */
-var CACHE = 'btgym-v10';
+var CACHE = 'btgym-v11';
 var ASSETS = [
   './',
   './index.html',
@@ -10,6 +10,7 @@ var ASSETS = [
   './js/course.js',
   './js/tools.js',
   './js/atlas.js',
+  './js/cases.js',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png'

@@ -80,6 +80,7 @@ function viewHome() {
     (pct === 100 ? tile('Certificate &#127891;', 'Course complete — view your certificate.', '#/certificate') : ''),
     tile('Capstone walkthrough', 'Analyse a fictional company end to end.', '#/capstone'),
     tile('Industry Atlas', 'Map the sector: areas, market size, players, MOA.', '#/atlas'),
+    tile('Case studies', 'Real companies, studied for the judgment they teach.', '#/cases'),
     tile('Review deck' + (reviewDeck().length ? ' — ' + reviewDeck().length + ' due' : ''), 'Spaced repetition of the quiz questions you missed.', '#/review'),
     tile('Final exam' + (state.exam ? ' — best ' + state.exam.bestPct + '%' : ''), 'A cumulative test drawn from every module.', '#/exam'),
     tile('Cash runway calculator', 'How many quarters until they must raise?', '#/tools/runway'),
@@ -717,6 +718,46 @@ function viewPlayers() {
     + '<button class="btn ghost small" data-nav="#/atlas">Back to Atlas</button>';
 }
 
+/* ---- Case studies ---- */
+function findCaseDef(cid) { return CASES.companies.find(function (c) { return c.id === cid; }); }
+
+function casePanel(facts) {
+  var rows = (facts.rows || []).map(function (r) {
+    var badge = (r.asOf) ? ' <span class="tag' + (r.pending ? ' med' : '') + '">as of ' + r.asOf + (r.pending ? ' &middot; to verify' : '') + '</span>' : '';
+    return '<div class="check"><span><strong>' + r.label + '</strong>' + badge + '<div class="muted small" style="margin-top:4px">' + r.value + '</div></span></div>';
+  }).join('');
+  return '<div class="card"><div class="row spread"><strong>At a glance</strong><span class="muted small">snapshot ' + facts.asOf + '</span></div>'
+    + '<div class="spacer"></div>' + rows
+    + '<p class="small muted">Dated, illustrative snapshot — not live data; the narrative below is the durable part.</p></div>';
+}
+
+function viewCases() {
+  var d = CASES;
+  app.innerHTML = '<div class="hero"><h1>Case studies</h1><p class="muted">' + d.intro + '</p><div class="spacer"></div><span class="pill">Educational</span><span class="pill">Real companies</span></div>'
+    + '<div class="card"><div class="muted small">' + d.disclaimer + '</div></div>'
+    + d.companies.map(function (c) {
+      return '<div class="card mod" data-nav="#/cases/' + c.id + '"><div class="meta"><div class="t">' + c.name + ' <span class="tag high">' + c.theme + '</span></div><div class="muted small">' + c.tagline + '</div></div></div>';
+    }).join('');
+}
+
+function viewCase(cid) {
+  var c = findCaseDef(cid);
+  if (!c) return viewCases();
+  app.innerHTML = '<div class="hero"><h1>' + c.name + '</h1><p class="muted">' + c.ticker + ' &middot; ' + c.tagline + '</p></div>'
+    + (c.facts ? casePanel(c.facts) : '')
+    + '<h3 style="margin:18px 4px 6px">The story</h3>'
+    + c.lessons.map(function (l) { return '<div class="card mod" data-nav="#/cases/' + c.id + '/' + l.id + '"><div class="meta"><div class="t">' + l.title + '</div></div></div>'; }).join('')
+    + '<div class="spacer"></div><button class="btn ghost small" data-nav="#/cases">Back to case studies</button>';
+}
+
+function viewCaseLesson(cid, lid) {
+  var c = findCaseDef(cid);
+  var l = c && c.lessons.find(function (x) { return x.id === lid; });
+  if (!l) return viewCase(cid);
+  app.innerHTML = '<div class="card lesson"><h2>' + l.title + '</h2>' + l.body.map(block).join('')
+    + '<div class="spacer"></div><button class="btn ghost small" data-nav="#/cases/' + cid + '">Back to ' + c.name + '</button></div>';
+}
+
 /* ---- router ---- */
 function route() {
   var h = location.hash || '#/';
@@ -738,6 +779,11 @@ function route() {
     else if (p[1] === 'A' && p[3]) viewAtlasAreaLesson(p[2], p[3]);
     else if (p[1] === 'A') viewAtlasArea(p[2]);
     else viewAtlas();
+  }
+  else if (p[0] === 'cases') {
+    if (p[1] && p[2]) viewCaseLesson(p[1], p[2]);
+    else if (p[1]) viewCase(p[1]);
+    else viewCases();
   }
   else if (p[0] === 'journal') viewJournal();
   else if (p[0] === 'search') viewSearch();
