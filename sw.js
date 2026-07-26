@@ -1,6 +1,6 @@
 /* Network-first service worker: fresh content wins when online, cache serves
    offline. Bump CACHE on release to drop stale entries. */
-var CACHE = 'btgym-v8';
+var CACHE = 'btgym-v9';
 var ASSETS = [
   './',
   './index.html',

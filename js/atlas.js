@@ -346,8 +346,8 @@ window.ATLAS_DATA = {
       ]
     },
     womens: {
-      asOf: '2024-25', pending: true,
-      marketSize: { value: '≈ $40B+', note: 'women\'s health / reproductive health — approximate and highly definition-dependent (contraception, menopause, endometriosis/fibroids, fertility, maternal health); to verify', asOf: '2024', pending: true },
+      asOf: '2024-25', pending: false,
+      marketSize: { value: 'hard to size', note: 'no reliable global figure survived verification — highly definition-dependent (contraception, menopause, endometriosis/fibroids, fertility, maternal health). For scale, the leading pure-play (Organon) had a women\'s-health franchise of ≈$1.78B in FY2024', asOf: '2024', pending: true },
       moaClasses: [
         'GnRH antagonists (endometriosis &amp; uterine fibroids)',
         'NK3-receptor antagonists (non-hormonal menopause / hot flashes)',
@@ -356,17 +356,17 @@ window.ATLAS_DATA = {
         'Fertility hormones (IVF / assisted reproduction)'
       ],
       landmarkDrugs: [
-        { name: 'Veozah (fezolinetant)', moa: 'first-in-class NK3-receptor antagonist for menopausal hot flashes — non-hormonal; Astellas; FDA-approved 2023', asOf: '2023', pending: true },
-        { name: 'Orilissa / Myfembree', moa: 'GnRH antagonists for endometriosis &amp; uterine fibroids (elagolix, AbbVie; relugolix combo, Sumitomo/Myovant)', asOf: '2024', pending: true },
-        { name: 'Nexplanon', moa: 'long-acting contraceptive implant — a women\'s-health cornerstone franchise, Organon', asOf: '2024', pending: true },
-        { name: 'Makena (17-OHPC)', moa: 'preterm-birth drug WITHDRAWN 2023 after a confirmatory trial failed — a cautionary case', asOf: '2023', pending: true }
+        { name: 'Veozah (fezolinetant)', moa: 'first-in-class non-hormonal NK3-receptor antagonist for menopausal hot flashes; Astellas; FDA-approved May 2023; ≈$230M global sales FY2024. Bayer\'s Lynkuet (elinzanetant), the first dual NK1/NK3 antagonist, followed in Oct 2025', asOf: 'FY2024', pending: false },
+        { name: 'Orilissa / Myfembree', moa: 'GnRH antagonists for endometriosis &amp; fibroids — elagolix (AbbVie; revenue folded into "all other"), relugolix combo (Myfembree, Sumitomo — via its ≈$1.7B Myovant buy, Mar 2023)', asOf: '2024', pending: false },
+        { name: 'Nexplanon', moa: 'long-acting contraceptive implant — Organon\'s cornerstone franchise; record ≈$963M FY2024 sales', asOf: 'FY2024', pending: false },
+        { name: 'Makena (17-OHPC)', moa: 'preterm-birth drug WITHDRAWN 2023 (incl. all generics) after the confirmatory PROLONG trial showed no benefit — a cautionary case', asOf: '2023', pending: false }
       ],
       keyPlayers: [
-        { name: 'Organon', franchise: 'women\'s-health-focused spin-off from Merck (2021) — contraception (Nexplanon), fertility', asOf: '2024', pending: true },
-        { name: 'AbbVie', franchise: 'Orilissa / Oriahnn (elagolix) for endometriosis &amp; fibroids', asOf: '2024', pending: true },
-        { name: 'Astellas', franchise: 'Veozah (fezolinetant) — non-hormonal menopause', asOf: '2024', pending: true },
-        { name: 'Sumitomo (Myovant)', franchise: 'Myfembree / Orgovyx (relugolix)', asOf: '2024', pending: true },
-        { name: 'Bayer / Ferring', franchise: 'contraception, menopause (Bayer); fertility (Ferring)', asOf: '2024', pending: true }
+        { name: 'Organon', franchise: 'women\'s-health-focused Merck spin-off (2021); FY2024 revenue ≈$6.4B, women\'s-health franchise ≈$1.78B (Nexplanon ≈$963M). Agreed to be acquired by Sun Pharma (≈$11.75B EV) Apr 2026', asOf: '2026', pending: false },
+        { name: 'AbbVie', franchise: 'Orilissa / Oriahnn (elagolix) for endometriosis &amp; fibroids (revenue not separately disclosed)', asOf: '2024', pending: false },
+        { name: 'Astellas', franchise: 'Veozah (fezolinetant) — non-hormonal menopause; ≈$230M FY2024', asOf: 'FY2024', pending: false },
+        { name: 'Sumitomo (Myovant)', franchise: 'Myfembree / Orgovyx (relugolix); acquired Myovant for ≈$1.7B (Mar 2023)', asOf: '2024', pending: false },
+        { name: 'Bayer / Ferring', franchise: 'Bayer\'s Lynkuet (elinzanetant) non-hormonal menopause, approved Oct 2025; contraception (Bayer); fertility (Ferring)', asOf: '2025', pending: false }
       ]
     }
   }
