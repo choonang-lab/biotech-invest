@@ -115,6 +115,14 @@ Area built (tier:3, "T3" badge; ATLAS_DATA.areas.aesthetics + aes1–aes5). Dist
 - [x] `aes4` — the toolkit, dual-use molecules & the players (4 categories; neurotoxin therapeutic-vs-aesthetic dual market; AbbVie/Galderma/Merz/Revance/Evolus)
 - [x] `aes5` — the investing angle (consumer-discretionary lens — brand/share, demand cycle, retention, challengers win share not trials)
 
+## Industry Atlas — Non-opioid Pain (2nd Tier-3, user-approved 2026-07-26)
+Area built (tier:3, "T3" badge; ATLAS_DATA.areas.pain + pain1–pain5). Distinctive framing: the opioid crisis → huge WANTED market for non-addictive analgesia, but a GRAVEYARD (placebo response + brain-entangled safety failures, e.g. NGF/tanezumab), and the investing twist = the REIMBURSEMENT CRUX (clean label ≠ commercial win; priced against near-free generics). Breakthrough anchor: Vertex Journavx/suzetrigine (Nav1.8) FDA-approved Jan 2025 — first new-class acute pain drug in decades. Deep-dive lessons evergreen prose. Figures `pending` — research pass verifying (apply when returns).
+- [x] `pain2` — the opioid shadow & unmet need (addiction liability; regulatory tailwind; why old non-opioids fall short)
+- [x] `pain3` — the analgesia graveyard (placebo response; efficacy-vs-CNS-safety trap; NGF/tanezumab joint-safety failure) [warn callout]
+- [x] `pain4` — toolkit & the sodium-channel breakthrough (generic NSAIDs/gabapentinoids/SNRIs/anesthetics; Nav1.8/Nav1.7 peripheral blockers; Journavx 2025; Vertex/Pacira/Heron)
+- [x] `pain5` — investing angle (reimbursement crux — payer access/pricing vs cheap generics; acute beachhead → chronic prize)
+Research figures to verify/apply: Journavx (suzetrigine) approval Jan 2025 + early sales, Exparel (Pacira) revenue, Lyrica/pregabalin historic peak, tanezumab discontinuation, non-opioid pain market size, players Vertex/Pacira/Heron.
+
 ## Atlas roadmap (remaining)
 - [x] All 4 Tier-1 areas (Oncology, Cardiometabolic, Immunology, Neuroscience) — done, verified panels.
 - [x] **Cross-cutting reference layers** (2026-07-24) — window.MODALITIES (9 evergreen modality cards: small molecule→mAb→ADC→bispecific→CAR-T→gene therapy→RNA→peptide→radiopharma, each with what/good-at/limits/moat/examples) + window.ATLAS_PLAYERS (12 dated big-pharma profiles from the verified area passes — focus/flagship/cliff/M&A, with asOf+pending badges). New viewModalities/viewPlayers, routes #/atlas/modalities & /players, Atlas-landing "Cross-cutting reference" section. Verified: 9 + 12 render, zero console errors, ?v=45.

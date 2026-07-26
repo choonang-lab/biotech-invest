@@ -321,6 +321,29 @@ window.ATLAS_DATA = {
         { name: 'Evolus', franchise: 'Jeuveau ("newtox"); FY2024 net revenue ≈ $266M (+32%)', asOf: 'FY2024', pending: false },
         { name: 'Revance', franchise: 'Daxxify + RHA fillers; acquired by Crown Laboratories (announced Aug 2024)', asOf: '2024', pending: false }
       ]
+    },
+    pain: {
+      asOf: '2025', pending: true,
+      marketSize: { value: '≈ $10B+', note: 'non-opioid analgesics — approximate; the broader pain-management market is far larger but dominated by cheap generics (NSAIDs, generic opioids, gabapentinoids); to verify', asOf: '2025', pending: true },
+      moaClasses: [
+        'Peripheral sodium-channel blockers (Nav1.8 / Nav1.7)',
+        'NSAIDs &amp; COX-2 inhibitors (mostly generic)',
+        'Gabapentinoids (pregabalin, gabapentin — off-patent)',
+        'SNRIs for chronic / neuropathic pain (e.g. duloxetine)',
+        'Local &amp; long-acting anesthetics (e.g. bupivacaine) and topicals (lidocaine, capsaicin)'
+      ],
+      landmarkDrugs: [
+        { name: 'Journavx (suzetrigine, VX-548)', moa: 'first-in-class Nav1.8 inhibitor for acute pain — non-opioid, non-addictive; Vertex; FDA-approved Jan 2025', asOf: '2025', pending: true },
+        { name: 'Exparel (liposomal bupivacaine)', moa: 'long-acting local anesthetic for post-surgical pain, Pacira', asOf: '2025', pending: true },
+        { name: 'Lyrica (pregabalin)', moa: 'gabapentinoid for neuropathic pain — former mega-blockbuster, now off-patent/generic', asOf: '2025', pending: true },
+        { name: 'Tanezumab (NGF antibody)', moa: 'anti-NGF for osteoarthritis — programme discontinued (joint-safety failure), Pfizer / Lilly', asOf: '2021', pending: true }
+      ],
+      keyPlayers: [
+        { name: 'Vertex Pharmaceuticals', franchise: 'Journavx (suzetrigine) — the non-opioid acute-pain breakthrough; deep Nav sodium-channel pipeline', asOf: '2025', pending: true },
+        { name: 'Pacira BioSciences', franchise: 'Exparel, Zilretta — non-opioid post-surgical &amp; osteoarthritis pain', asOf: '2025', pending: true },
+        { name: 'Pfizer / Eli Lilly', franchise: 'historic NGF (tanezumab) programme — discontinued; CGRP migraine assets elsewhere', asOf: '2021', pending: true },
+        { name: 'Heron Therapeutics', franchise: 'Zynrelef (non-opioid post-operative analgesia)', asOf: '2025', pending: true }
+      ]
     }
   }
 };
@@ -1543,6 +1566,110 @@ window.ATLAS = {
             { h: 'The reframing' },
             { p: 'Value the durable franchises like consumer staples with a discretionary tilt — steady, cash-generative, brand-moated, but cyclical. Value the challengers like consumer-brand start-ups — the whole thesis is whether marketing and differentiation can convert into durable share against an entrenched name, which is a marketing-and-channel bet, not a science bet. In both cases the analytical toolkit is elasticity, brand and share, not phase-transition probabilities.' },
             { callout: 'Aesthetics rewards the consumer-goods investor\'s instincts: buy durable brands with pricing power, respect the demand cycle, and judge challengers by whether they win share — not by whether their trial reads out. Reach for the biotech binary here and you will misprice it.', kind: '' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'pain',
+      title: 'Non-opioid Pain',
+      tier: 3,
+      dataKey: 'pain',
+      blurb: 'A vast unmet need, a graveyard of failures, and a hard-won breakthrough — the hunt for pain relief without addiction.',
+      lessons: [
+        {
+          id: 'pain1',
+          title: 'Non-opioid pain — huge need, hard science',
+          body: [
+            { p: 'Pain is one of the most common reasons people seek medical care, yet the drugs to treat it are strikingly limited. For decades the strongest tools were opioids — hugely effective, but addictive and, at scale, the cause of a public-health catastrophe. That shadow reframed the whole field: the prize is no longer just relieving pain, it is relieving pain WITHOUT the addiction liability.' },
+            { p: 'Non-opioid pain is therefore defined less by a single organ or disease and more by a mission — to replace or reduce opioid use with medicines that are effective but not habit-forming. It spans acute pain (after surgery or injury) and chronic pain (osteoarthritis, low-back pain, neuropathic pain), each with its own biology and its own commercial reality.' },
+            { ul: [
+              'A genuinely enormous patient population — pain is near-universal',
+              'A powerful societal tailwind — pressure to move away from opioids',
+              'But punishing science — pain has proven one of the hardest areas to drug safely',
+              'And a distinctive commercial catch — it competes against cheap, entrenched generics'
+            ] },
+            { callout: 'The opioid crisis turned "non-addictive pain relief" into one of medicine\'s highest-value goals. But the field is a graveyard, and even a clean win faces a pricing problem the deep-dive lessons below unpack.', kind: '' }
+          ]
+        },
+        {
+          id: 'pain2',
+          title: 'The opioid shadow & the unmet need',
+          body: [
+            { p: 'To understand the modern non-opioid pain field, start with why opioids became a problem. Opioids are powerful analgesics, but they act on the brain\'s reward circuitry — which is exactly what makes them addictive. Widespread prescribing, dependence, and a shift to illicit supply produced an epidemic of addiction and overdose deaths. The medical, regulatory, and social response reshaped how pain is treated.' },
+            { h: 'What the crisis changed' },
+            { ul: [
+              'Prescribing pressure — guidelines and payers push to limit opioid use, especially for acute and post-surgical pain',
+              'A regulatory tailwind — regulators actively encourage development of non-addictive alternatives',
+              'A reframed goal — "as effective as an opioid, without the abuse potential" became the target product profile',
+              'A commercial opening — a large, motivated market for any drug that credibly delivers that profile'
+            ] },
+            { h: 'Why "just use the old drugs" is not enough' },
+            { p: 'The existing non-opioid options each fall short somewhere. NSAIDs (ibuprofen, naproxen) work for mild-to-moderate pain but carry gastrointestinal, kidney, and cardiovascular risks and a ceiling on efficacy. Gabapentinoids and antidepressants help some chronic and neuropathic pain but have their own side effects and inconsistent benefit. None matches an opioid\'s power for severe acute pain. That gap — strong efficacy without addiction — is the unmet need the whole field is chasing.' },
+            { callout: 'The opioid epidemic did not just create a health crisis; it created a durable, high-value commercial opening. The company that fills the "opioid-strength, non-addictive" gap is selling into a market that patients, doctors, regulators and payers all WANT to exist.', kind: '' }
+          ]
+        },
+        {
+          id: 'pain3',
+          title: 'Why pain is hard — the analgesia graveyard',
+          body: [
+            { p: 'If the need is so large and so wanted, why are there so few new pain drugs? Because pain is one of the most treacherous areas in all of drug development. The failures are instructive — and they are the reason a genuine breakthrough is so valuable.' },
+            { h: 'The big obstacles' },
+            { ul: [
+              'A huge placebo response — pain is subjective and self-reported, so placebo groups often improve dramatically, making it very hard to prove a drug actually works',
+              'The efficacy-vs-safety trap — many pain pathways run through the brain and spinal cord, so blocking pain often also causes sedation, dizziness, mood effects or abuse potential',
+              'Separating the signal — showing a new drug beats both placebo AND an active comparator, in a noisy endpoint, demands large, expensive trials',
+              'Chronic-pain biology is tangled — it involves nerves rewiring over time, not a single clean target'
+            ] },
+            { h: 'A cautionary tale: the NGF antibodies' },
+            { p: 'The clearest recent lesson is the anti-NGF class. Nerve growth factor drives pain signalling, and antibodies against it (tanezumab, fasinumab) were genuinely effective for osteoarthritis pain — a major potential market. But in trials some patients developed rapidly progressive joint damage, and the programmes were ultimately discontinued despite years of investment. A drug can work on pain and still fail on safety in a way no one fully predicted.' },
+            { p: 'The graveyard is why investors should treat pain assets with unusual skepticism on efficacy (beware the placebo response) and unusual vigilance on safety (the side effect that kills the drug often appears late). It is also why a validated, clean mechanism — when one finally arrives — commands a premium.' },
+            { callout: 'Pain is a graveyard for two structural reasons: a placebo response that masks real efficacy, and pain pathways so entangled with the brain that safety failures are common and often late. Discount bold efficacy claims; scrutinise the safety database hard.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'pain4',
+          title: 'The toolkit & the sodium-channel breakthrough',
+          body: [
+            { p: 'The established non-opioid toolkit is a patchwork, and most of it is generic. Knowing the categories — and where the genuine innovation is now happening — is the key to reading the field.' },
+            { h: 'The existing categories (mostly generic)' },
+            { ul: [
+              'NSAIDs &amp; COX-2 inhibitors — first-line for mild-to-moderate pain; cheap and generic',
+              'Gabapentinoids (pregabalin, gabapentin) — for neuropathic pain; former blockbusters, now off-patent',
+              'Antidepressants (SNRIs like duloxetine) — for chronic and neuropathic pain',
+              'Local &amp; long-acting anesthetics (e.g. liposomal bupivacaine) and topicals (lidocaine, capsaicin) — for localised and post-surgical pain'
+            ] },
+            { h: 'The breakthrough: peripheral sodium channels' },
+            { p: 'The most important recent advance targets sodium channels — the Nav1.8 and Nav1.7 channels that carry pain signals along nerves OUTSIDE the brain. Because these channels sit in the peripheral nervous system, blocking them can relieve pain WITHOUT acting on the brain\'s reward circuitry — so, in principle, without addiction and without the CNS side effects that sank earlier drugs. This is the mechanistic holy grail the field chased for years.' },
+            { p: 'In early 2025 that idea became real: Vertex\'s suzetrigine (marketed as Journavx), a Nav1.8 inhibitor, was approved for acute pain — the first genuinely new class of acute pain medicine in decades, and a non-opioid one. It validated the peripheral-sodium-channel approach and opened a pipeline of follow-on molecules (including efforts in chronic and neuropathic pain).' },
+            { h: 'The players' },
+            { ul: [
+              'Vertex — the leader of the sodium-channel wave (Journavx / suzetrigine) with a deep Nav pipeline; a rare big biotech betting heavily on pain',
+              'Pacira BioSciences — a non-opioid pain specialist (Exparel long-acting local anesthetic; Zilretta for osteoarthritis)',
+              'Heron Therapeutics and others — non-opioid post-surgical analgesia',
+              'Pfizer / Lilly — the cautionary NGF (tanezumab) history; big pharma has largely been burned here before'
+            ] },
+            { callout: 'The toolkit is old and mostly generic — which is exactly why the peripheral sodium-channel mechanism matters. Blocking pain in the nerves without touching the brain is what makes "effective but non-addictive" scientifically possible, and Journavx\'s 2025 approval proved it can be done.', kind: '' }
+          ]
+        },
+        {
+          id: 'pain5',
+          title: 'The investing angle — the reimbursement crux',
+          body: [
+            { p: 'Non-opioid pain has the most seductive setup in the Atlas — a near-universal disease, a societal push away from opioids, and a freshly validated mechanism. And yet the investing lesson is a cautionary one: in pain, a clean scientific win does not automatically become a commercial one. The reason is the competition it is priced against.' },
+            { h: 'The reimbursement crux' },
+            { p: 'A new non-opioid analgesic does not compete against nothing — it competes against generic opioids, NSAIDs and gabapentinoids that cost pennies. To justify a branded price, it must convince payers that avoiding addiction and side effects is worth paying a large premium for. That is a value-capture problem: non-addictiveness is a benefit to society and to the health system broadly, but the payer writing the cheque may still gate access on price. Formulary position, prior-authorisation hurdles, and how much of the label\'s promise translates into paid prescriptions matter as much as the trial result.' },
+            { h: 'What to actually watch' },
+            { ul: [
+              'Payer access &amp; pricing — is the drug on formularies at a tier patients can afford, or buried behind prior authorisation?',
+              'Real-world uptake vs the label — approval is the start; the question is whether prescriptions and reimbursement follow',
+              'The efficacy bar — did it beat placebo AND a real comparator convincingly, given pain\'s placebo problem?',
+              'The safety database — depth and duration, because the drug-killing side effect often shows up late (remember NGF)',
+              'Breadth of the franchise — acute pain is a beachhead; the bigger prize is extending a validated mechanism into large chronic-pain markets'
+            ] },
+            { h: 'The reframing' },
+            { p: 'Value a pain asset on the gap between its addressable population and its reimbursed reality. The science can be genuinely novel and the label genuinely clean, and the stock can still disappoint if payers will not pay a premium over generics. The winners are drugs that are not just non-addictive, but demonstrably worth their price to the system — and, ideally, a validated mechanism that can travel from a small acute-pain beachhead into far larger chronic-pain markets.' },
+            { callout: 'Pain\'s trap for investors is assuming a clean label equals a big market. It does not: the drug is priced against near-free generics, so reimbursement and real-world uptake — not just the trial — decide whether a scientific breakthrough becomes a commercial one.', kind: '' }
           ]
         }
       ]
