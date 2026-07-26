@@ -297,6 +297,30 @@ window.ATLAS_DATA = {
         { name: 'Novartis', franchise: 'Fabhalta (IgA nephropathy)', asOf: '2026-Q1', pending: true },
         { name: 'Boehringer / Lilly', franchise: 'Jardiance', asOf: '2026-Q1', pending: true }
       ]
+    },
+    aesthetics: {
+      asOf: '2024-25', pending: true,
+      marketSize: { value: '≈ $15B+', note: 'medical aesthetics — injectables + energy devices; cash-pay, discretionary; to verify', asOf: '2024', pending: true },
+      moaClasses: [
+        'Botulinum toxin (neurotoxin) injectables',
+        'Hyaluronic-acid dermal fillers',
+        'Collagen stimulators (e.g. poly-L-lactic acid)',
+        'Energy-based devices (body contouring, skin tightening)',
+        'Topical &amp; regenerative skincare'
+      ],
+      landmarkDrugs: [
+        { name: 'Botox / Botox Cosmetic (onabotulinumtoxinA)', moa: 'botulinum toxin — the category-defining neurotoxin, AbbVie / Allergan', asOf: '2026-Q1', pending: true },
+        { name: 'Juvederm', moa: 'hyaluronic-acid dermal filler, AbbVie / Allergan', asOf: '2026-Q1', pending: true },
+        { name: 'Dysport / Restylane', moa: 'neurotoxin / HA filler, Galderma', asOf: '2026-Q1', pending: true },
+        { name: 'Daxxify (daxibotulinumtoxinA)', moa: 'longer-acting neurotoxin challenger, Revance', asOf: '2026-Q1', pending: true }
+      ],
+      keyPlayers: [
+        { name: 'AbbVie (Allergan Aesthetics)', franchise: 'Botox, Juvederm, CoolSculpting — the market leader', asOf: '2026-Q1', pending: true },
+        { name: 'Galderma', franchise: 'Dysport, Restylane, Sculptra (IPO 2024)', asOf: '2026-Q1', pending: true },
+        { name: 'Merz Aesthetics', franchise: 'Xeomin, Ultherapy (private)', asOf: '2026-Q1', pending: true },
+        { name: 'Evolus', franchise: 'Jeuveau (neurotoxin)', asOf: '2026-Q1', pending: true },
+        { name: 'Revance', franchise: 'Daxxify (longer-acting neurotoxin)', asOf: '2026-Q1', pending: true }
+      ]
     }
   }
 };
@@ -1412,6 +1436,113 @@ window.ATLAS = {
             ] },
             { p: 'Applying the tools: treat SGLT2 / broad-CKD as a label-expansion franchise owned by metabolic giants; for IgA nephropathy names, map the crowded competitive set (several mechanisms, same patients); apply rare-disease economics to the orphan kidney diseases; and weight regional regulatory risk.' },
             { callout: 'Nephrology rewards knowing which story you are buying — a diabetes-giant\'s organ-spanning franchise (SGLT2), a crowded rare-disease race (IgA nephropathy), or a specialist niche (ADPKD). The revival is real, but so is the crowding and the cardiometabolic overlap.', kind: '' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'aesthetics',
+      title: 'Aesthetics',
+      tier: 3,
+      dataKey: 'aesthetics',
+      blurb: 'Botox, fillers &amp; body contouring — the consumer business inside pharma.',
+      lessons: [
+        {
+          id: 'aes1',
+          title: 'Aesthetics — the consumer business inside pharma',
+          body: [
+            { p: 'Medical aesthetics covers cosmetic treatments of the face and body — wrinkle-reducing neurotoxins (Botox and its rivals), hyaluronic-acid dermal fillers, and energy-based body-contouring devices. It sits inside pharma but behaves like nothing else in it.' },
+            { p: 'The reason: it is almost entirely CASH-PAY. There is no insurer, no pharmacy-benefit manager, no formulary — patients pay out of pocket for a discretionary purchase. That single fact flips the economics: aesthetics runs like a consumer-brand business, not a reimbursed-medicine business.' },
+            { ul: [
+              'Cash-pay — no payer, so real pricing power sits with the brand',
+              'Brand- and marketing-driven — Botox is a household name, not just a molecule',
+              'A practitioner / med-spa channel — sold via dermatologists, plastic surgeons and clinics',
+              'Discretionary and recession-sensitive demand — the opposite of essential medicines'
+            ] },
+            { callout: 'Aesthetics is the one corner of pharma that behaves like consumer goods. Analyse it with a consumer lens — brand, demand elasticity, discretionary spend — not the usual clinical-and-reimbursement lens. The deep-dive lessons below unpack it.', kind: '' }
+          ]
+        },
+        {
+          id: 'aes2',
+          title: 'The cash-pay consumer model',
+          body: [
+            { p: 'Everything strange about aesthetics traces back to one structural fact: the patient pays. Because there is no insurer between the company and the customer, none of the usual pharma reimbursement machinery exists — no formulary negotiation, no prior authorization, no pharmacy-benefit-manager rebate, no national price reference. The list price and the pocket price are the same thing.' },
+            { h: 'What disappears when the payer disappears' },
+            { ul: [
+              'No formulary access to win — a launch does not live or die on getting onto a payer\'s covered list',
+              'No PBM rebate erosion — the gap between "list" and "net" price that crushes rebated drugs simply is not there',
+              'No coverage cliff — demand is not switched off by a plan dropping the product',
+              'But also no safety net — if the consumer decides not to spend, nothing compels the purchase'
+            ] },
+            { h: 'What the company competes on instead' },
+            { p: 'With no payer to persuade, the fight moves to the two parties who actually decide: the injector and the consumer. Companies build demand the way consumer brands do — direct-to-consumer marketing, brand awareness, and loyalty programs. AbbVie\'s Allē and Galderma\'s ASPIRE, for example, are points-based rewards programs that make patients loyal to a brand across repeat visits, much like an airline frequent-flyer scheme.' },
+            { p: 'They also compete for the practitioner. Because treatments are delivered in a clinic or med-spa, the injector\'s preference, training, and commercial relationship with the company heavily shape which brand a patient receives. Winning the channel (dermatologists, plastic surgeons, med-spas) is as important as winning the consumer.' },
+            { h: 'The trade-off: elastic, discretionary demand' },
+            { p: 'The flip side of cash-pay pricing power is demand fragility. A neurotoxin touch-up is one of the easiest purchases in all of healthcare to postpone. That makes aesthetics genuinely cyclical — volumes soften when consumer confidence falls and recover when it returns, behaving more like premium discretionary spending (think a nice handbag or a spa membership) than like medicine. Treatments are also priced per-session and repeat every few months, so the model rewards retention: the lifetime value of a loyal patient dwarfs a single visit.' },
+            { callout: 'Cash-pay is a double-edged sword. It hands companies real pricing power and clean, rebate-free revenue — but it ties demand to consumer confidence and to two gatekeepers (injector and patient) that classic reimbursed pharma never has to court.', kind: '' }
+          ]
+        },
+        {
+          id: 'aes3',
+          title: 'The brand moat — durability without a patent',
+          body: [
+            { p: 'The most counter-intuitive lesson in aesthetics: the flagship product keeps dominating long after its patents expire. Botox has been off its core composition-of-matter patent protection for many years, yet still commands the leading share of the facial-neurotoxin market. In classic pharma, patent expiry means generics and a revenue cliff. Here it barely dents the leader. Understanding why is the whole point of the area.' },
+            { h: 'Why the moat survives patent loss' },
+            { ul: [
+              'Brand recognition — "Botox" became the generic verb for the whole category; consumers ask for it by name, which no challenger\'s marketing can easily undo',
+              'Injector familiarity and trust — practitioners are trained on, comfortable with, and confident in the dosing and safety profile of the incumbent; switching carries clinical and reputational risk for a cash-paying patient\'s face',
+              'Biologic complexity — neurotoxins are biologics, not simple small molecules, so there is no cheap, automatically-substitutable "generic" the way there is for a pill; a rival must run its own trials and build its own brand',
+              'Loyalty and switching friction — rewards programs and a satisfied patient\'s "if it works, don\'t change it" instinct keep repeat visits with the same brand'
+            ] },
+            { h: 'How the moat differs from a drug patent' },
+            { p: 'A patent is a legal, time-limited monopoly — precise, defensible in court, and guaranteed to end. A brand-plus-channel moat is fuzzier and softer, but potentially far more durable because it has no expiry date. It is eroded, not by a calendar, but by competitors slowly chipping at share with lower prices, novel benefits (e.g. faster onset or longer duration), or better practitioner economics. The moat is real, but it is defended every day, not by the patent office.' },
+            { h: 'What can weaken it' },
+            { p: 'The moat is not invincible. Newer neurotoxins compete on differentiated claims — longer duration or quicker onset — and on price and injector incentives. A meaningful clinical or safety differentiator, aggressive channel deals, or a shift in what practitioners recommend can move share over time. The investor\'s job is to watch whether challengers are actually converting trials into durable share, or merely launching.' },
+            { callout: 'Aesthetics proves that a moat need not be a patent. Brand, channel trust, and biologic complexity can defend a franchise for decades past IP expiry — but "durable" is not "permanent". Track share, not just the patent estate.', kind: '' }
+          ]
+        },
+        {
+          id: 'aes4',
+          title: 'The toolkit, dual-use molecules & the players',
+          body: [
+            { p: 'The aesthetics toolkit is small and well-defined. Knowing the handful of categories, and who leads each, is most of what you need to read the competitive map.' },
+            { h: 'The four categories' },
+            { ul: [
+              'Neurotoxins (botulinum toxin injectables) — relax specific muscles to soften dynamic wrinkles; the anchor category and the biggest brands',
+              'Dermal fillers (mostly hyaluronic-acid gels) — restore lost volume and contour; sold as franchises alongside neurotoxins',
+              'Collagen stimulators / biostimulators — prompt the skin to rebuild its own collagen over months for gradual volumizing',
+              'Energy-based & body-contouring devices — light, radiofrequency, ultrasound or cooling used for skin tightening and fat reduction; a capital-equipment and consumables business, distinct from injectables'
+            ] },
+            { h: 'Dual-use molecules — the same drug, two markets' },
+            { p: 'A defining quirk: several aesthetic molecules are also serious therapeutics. Botulinum toxin is the clearest case — the same class of drug treats chronic migraine, muscle spasticity, cervical dystonia, overactive bladder and excessive sweating, and separately smooths frown lines. Companies literally split reporting into a therapeutic franchise (reimbursed, payer-driven, medical) and a cosmetic franchise (cash-pay, consumer-driven). One molecule, two completely different business models running side by side. When you read a neurotoxin\'s sales, always ask which half you are looking at — the therapeutic and aesthetic halves behave nothing alike.' },
+            { h: 'The players' },
+            { ul: [
+              'AbbVie (Allergan Aesthetics) — the market leader, home of Botox / Botox Cosmetic, the Juvederm filler family, and CoolSculpting body contouring; acquired via the Allergan deal',
+              'Galderma — a dermatology-focused pure-play (Dysport neurotoxin, Restylane and Sculptra) that returned to the public markets via a 2024 IPO',
+              'Merz Aesthetics — privately held, with Xeomin (a "naked" neurotoxin), the Belotero fillers and Ultherapy energy devices',
+              'Challenger neurotoxins — Revance (Daxxify, marketed on longer duration), Evolus (Jeuveau, a price-competitive "newtox"), among others, all trying to convert differentiation into share against the incumbent'
+            ] },
+            { callout: 'Read the map in two moves: first place a product in one of the four categories, then ask whether the molecule is dual-use — because a neurotoxin\'s therapeutic and aesthetic halves are effectively two different companies stapled together.', kind: '' }
+          ]
+        },
+        {
+          id: 'aes5',
+          title: 'The investing angle — a consumer-discretionary lens',
+          body: [
+            { p: 'Because aesthetics behaves like premium consumer goods, the sharpest mistake an investor can make is to value it with a pure biotech playbook. There is no binary trial readout that re-rates the stock overnight and no patent cliff that zeroes a franchise. The questions that matter are the ones you would ask of a consumer-brand business.' },
+            { h: 'What actually drives the numbers' },
+            { ul: [
+              'Brand strength and share — is the flagship holding, gaining or slowly ceding share? Share trend matters more than the patent estate',
+              'Volume and the consumer cycle — treatment volumes track consumer confidence; soft quarters in a downturn are cyclical, not structural, if the brand is intact',
+              'Pricing power and mix — can the company hold price and shift patients toward premium products without losing volume?',
+              'Retention economics — loyalty-program engagement and repeat-visit rates signal the lifetime value that underpins the model',
+              'Channel health — injector and med-spa relationships, and the training pipeline that feeds new demand'
+            ] },
+            { h: 'Where the risks really sit' },
+            { p: 'The threats are competitive and macro, not regulatory-binary. New neurotoxins compete on duration, onset and price and can erode the incumbent\'s share gradually. A consumer recession compresses discretionary volumes across the category. And "newtox" price competition can pressure the whole neurotoxin price umbrella even for the leader. None of these is a cliff — each is a slow grind that shows up in share and margin, so the discipline is to track the trend over several quarters, not to wait for a single catalyst.' },
+            { h: 'The reframing' },
+            { p: 'Value the durable franchises like consumer staples with a discretionary tilt — steady, cash-generative, brand-moated, but cyclical. Value the challengers like consumer-brand start-ups — the whole thesis is whether marketing and differentiation can convert into durable share against an entrenched name, which is a marketing-and-channel bet, not a science bet. In both cases the analytical toolkit is elasticity, brand and share, not phase-transition probabilities.' },
+            { callout: 'Aesthetics rewards the consumer-goods investor\'s instincts: buy durable brands with pricing power, respect the demand cycle, and judge challengers by whether they win share — not by whether their trial reads out. Reach for the biotech binary here and you will misprice it.', kind: '' }
           ]
         }
       ]
