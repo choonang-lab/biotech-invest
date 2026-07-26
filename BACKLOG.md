@@ -93,6 +93,21 @@ Area scaffolded (ATLAS_DATA.ophthalmology + oph1 intro). Figures `pending` — s
 
 **OPHTHALMOLOGY (5th Tier-2) build-out COMPLETE (2026-07-24).** 5-lesson deep dive verified, ?v=53. Panel figures pending — research pass running. Atlas now has 9 areas (Tier-1 ×4 + Tier-2 ×5).
 
+## Industry Atlas — Tier 2.5 (MASH + Nephrology, user-approved 2026-07-24)
+2 areas (tier:2.5, "T2.5" badge). **FIGURES VERIFIED & APPLIED (2026-07-24, ?v=57)** — 112-agent pass: MASH Rezdiffra first-approved (Mar 2024) ≈$958M FY2025 (≈the whole current MASH market), semaglutide won FDA MASH label; nephrology Farxiga $7.66B FY2024 (AZ's largest), Filspari $410M FY2025 (+144%, IgA nephropathy), Tarpeyo full approval Dec 2023. Market sizes + some drugs (Jardiance/Kerendia/Fabhalta/tolvaptan/roxadustat/FGF21) stayed unverified → pending. Deep-dive lessons evergreen, no research.
+### MASH (metabolic liver disease) — DONE (2026-07-24), 5-lesson deep dive, verified, ?v=56
+- [x] `mash2` — why MASH was a graveyard (multifactorial biology, biopsy endpoints, Intercept OCA/Gilead selonsertib failures)
+- [x] `mash3` — the breakthrough & mechanism landscape (Rezdiffra THR-β first approval; FGF21; pipeline)
+- [x] `mash4` — the GLP-1 disruption (will incretins eat MASH? treating the cause vs the liver)
+- [x] `mash5` — the investing angle (discount the projected TAM; GLP-1 overhang; biopsy-gated uptake; respect the history)
+### Nephrology / renal — DONE (2026-07-24), 5-lesson deep dive, verified, ?v=58
+- [x] `neph2` — the SGLT2 cardiorenal revolution (diabetes drug → kidney/heart; label expansion; convergence)
+- [x] `neph3` — the IgA nephropathy wave (Tarpeyo/Filspari/Fabhalta; crowded fast; first-mover fragility)
+- [x] `neph4` — ADPKD, anemia & the roxadustat lesson (regional regulatory divergence — FDA rejection)
+- [x] `neph5` — the investing angle (which story: SGLT2 giant franchise / crowded IgAN race / specialist niche)
+
+**TIER-2.5 COMPLETE (2026-07-24).** MASH + Nephrology = verified panels + 5-lesson deep dives (10 lessons). Atlas now has 11 areas (Tier-1 ×4 + Tier-2 ×5 + Tier-2.5 ×2). ?v=58. NOT YET PUSHED to GitHub — needs `git push` to reach the live site.
+
 ## Atlas roadmap (remaining)
 - [x] All 4 Tier-1 areas (Oncology, Cardiometabolic, Immunology, Neuroscience) — done, verified panels.
 - [x] **Cross-cutting reference layers** (2026-07-24) — window.MODALITIES (9 evergreen modality cards: small molecule→mAb→ADC→bispecific→CAR-T→gene therapy→RNA→peptide→radiopharma, each with what/good-at/limits/moat/examples) + window.ATLAS_PLAYERS (12 dated big-pharma profiles from the verified area passes — focus/flagship/cliff/M&A, with asOf+pending badges). New viewModalities/viewPlayers, routes #/atlas/modalities & /players, Atlas-landing "Cross-cutting reference" section. Verified: 9 + 12 render, zero console errors, ?v=45.

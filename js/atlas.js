@@ -247,6 +247,56 @@ window.ATLAS_DATA = {
         { name: 'Astellas (Iveric Bio)', franchise: 'Izervay (GA) — acquired Iveric for $5.9B (2023)', asOf: '2024', pending: false },
         { name: 'AbbVie (Allergan)', franchise: 'dry eye &amp; glaucoma — acquired Allergan for $63B (2020)', asOf: '2024', pending: false }
       ]
+    },
+    mash: {
+      asOf: '2024-25', pending: false,
+      /* Verified: Madrigal filings (Rezdiffra); Novo/Lilly MASH trials. Future-market projection unverified. */
+      marketSize: { value: '≈ $1B now', note: 'current approved-MASH sales ≈ Rezdiffra alone ($958M FY2025); large FUTURE potential — projections unverified', asOf: '2025', pending: false },
+      moaClasses: [
+        'Thyroid hormone receptor-β (THR-β) agonists',
+        'GLP-1 / incretins (from cardiometabolic)',
+        'FGF21 analogs',
+        'Pan-PPAR agonists',
+        '(historically) FXR agonists — largely failed'
+      ],
+      landmarkDrugs: [
+        { name: 'Rezdiffra (resmetirom)', moa: 'THR-β agonist, Madrigal — the first FDA-approved MASH drug (Mar 2024); ≈$958M FY2025 (first full year)', asOf: '2025', pending: false },
+        { name: 'Semaglutide (Wegovy)', moa: 'GLP-1, Novo Nordisk — won an FDA MASH label (ESSENCE Phase 3); incretins expanding in', asOf: '2025', pending: false },
+        { name: 'Obeticholic acid (Ocaliva)', moa: 'FXR agonist, Intercept — rejected for MASH (a notable failure)', asOf: '2024', pending: false }
+      ],
+      keyPlayers: [
+        { name: 'Madrigal', franchise: 'Rezdiffra ≈$958M FY2025 — the first MASH drug', asOf: '2025', pending: false },
+        { name: 'Novo Nordisk', franchise: 'semaglutide — FDA MASH label', asOf: '2025', pending: false },
+        { name: 'Eli Lilly', franchise: 'tirzepatide (SYNERGY-NASH Phase 2)', asOf: '2024', pending: false },
+        { name: 'Akero / 89bio', franchise: 'FGF21 analogs (clinical-stage)', asOf: '2026-Q1', pending: true }
+      ]
+    },
+    nephrology: {
+      asOf: '2024-25', pending: false,
+      /* Verified: AstraZeneca Farxiga $7.66B FY2024; Travere Filspari FY2025. Market size + several drugs still to verify. */
+      marketSize: { value: '≈ $20B+', note: 'CKD + IgA nephropathy + ADPKD + renal anemia — fragmented; annual figure to verify', asOf: '2024', pending: true },
+      moaClasses: [
+        'SGLT2 inhibitors (cardiorenal protection)',
+        'Non-steroidal mineralocorticoid-receptor antagonists (finerenone)',
+        'Endothelin antagonists (IgA nephropathy)',
+        'Complement inhibitors (IgA nephropathy)',
+        'HIF-PH inhibitors (renal anemia)',
+        'Vasopressin antagonists (ADPKD)'
+      ],
+      landmarkDrugs: [
+        { name: 'Farxiga (dapagliflozin)', moa: 'SGLT2 inhibitor — cardiorenal / CKD, AstraZeneca — ≈$7.66B FY2024 (AZ\'s largest product)', asOf: '2024', pending: false },
+        { name: 'Filspari (sparsentan)', moa: 'endothelin / angiotensin blocker, IgA nephropathy, Travere — ≈$410M FY2025 (+144%)', asOf: '2025', pending: false },
+        { name: 'Jardiance (empagliflozin)', moa: 'SGLT2 inhibitor — cardiorenal / CKD, Boehringer / Lilly', asOf: '2026-Q1', pending: true },
+        { name: 'Kerendia (finerenone)', moa: 'non-steroidal MRA, diabetic kidney disease, Bayer', asOf: '2026-Q1', pending: true },
+        { name: 'Fabhalta / Tarpeyo', moa: 'IgA nephropathy — complement (Novartis) / gut-targeted budesonide (Calliditas, full approval Dec 2023)', asOf: '2026-Q1', pending: true }
+      ],
+      keyPlayers: [
+        { name: 'AstraZeneca', franchise: 'Farxiga ≈$7.66B FY2024 (SGLT2 / cardiorenal leader)', asOf: '2024', pending: false },
+        { name: 'Travere', franchise: 'Filspari ≈$410M FY2025 (IgA nephropathy)', asOf: '2025', pending: false },
+        { name: 'Bayer', franchise: 'Kerendia (finerenone)', asOf: '2026-Q1', pending: true },
+        { name: 'Novartis', franchise: 'Fabhalta (IgA nephropathy)', asOf: '2026-Q1', pending: true },
+        { name: 'Boehringer / Lilly', franchise: 'Jardiance', asOf: '2026-Q1', pending: true }
+      ]
     }
   }
 };
@@ -1169,6 +1219,181 @@ window.ATLAS = {
             ] },
             { p: 'Applying the tools: value a retinal drug on its dosing interval as much as its efficacy; treat the biosimilar timeline and the next-gen reformulation like a patent cliff; weigh the specialist channel\'s stickiness; and treat gene-therapy or first-in-indication assets as high-value optionality.' },
             { callout: 'Ophthalmology\'s edge is unusually clear — durability wins, the specialist channel protects, and new mechanisms open markets. Read the dosing interval, the biosimilar clock, and whether a drug is first in its indication.', kind: '' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'mash',
+      title: 'Metabolic Liver Disease (MASH)',
+      tier: 2.5,
+      dataKey: 'mash',
+      blurb: 'Fatty-liver disease — a huge market, a graveyard history, and a first approval at last.',
+      lessons: [
+        {
+          id: 'mash1',
+          title: 'MASH — the shape of the area',
+          body: [
+            { p: 'MASH — metabolic dysfunction-associated steatohepatitis, formerly called NASH — is fatty-liver disease driven by metabolism: a build-up of fat and inflammation in the liver that can progress to fibrosis, cirrhosis and liver cancer. It is tied to obesity and type 2 diabetes, so the potential population is enormous — and it overlaps heavily with cardiometabolic.' },
+            { p: 'For two decades MASH was a graveyard: a huge anticipated market and a long line of Phase 3 failures, because the biology is multifactorial and the endpoints (measured by liver biopsy) are brutal. Then, in 2024, the first drug was finally approved.' },
+            { ul: [
+              'Why it was hard — multifactorial disease, slow invasive biopsy endpoints, and many failed mechanisms',
+              'Why now — the first approval (a thyroid-receptor-β agonist) cracked it',
+              'The twist — the GLP-1 wave is spilling in: semaglutide and tirzepatide show liver benefit'
+            ] },
+            { callout: 'MASH is the "huge market, brutal history, finally cracked" story. The tension: a first-in-class drug just opened the market, but the GLP-1s that treat the underlying obesity may end up dominating it. The deep-dive lessons below unpack it.', kind: '' }
+          ]
+        },
+        {
+          id: 'mash2',
+          title: 'Why MASH was a graveyard',
+          body: [
+            { p: 'For two decades MASH (then called NASH) was one of biotech\'s most notorious graveyards — a market everyone knew would be huge, and a pipeline that kept failing. Understanding why is a lesson in itself.' },
+            { ul: [
+              'Multifactorial biology — MASH is driven by fat, inflammation AND fibrosis at once, so a drug hitting one pathway often failed to move the whole disease',
+              'Brutal endpoints — approval required liver biopsies showing fibrosis regression, a slow, invasive, variable measure with a high placebo response',
+              'A long list of high-profile failures — Intercept\'s obeticholic acid (an FXR agonist) was rejected despite years of effort; Gilead\'s selonsertib and others failed in Phase 3'
+            ] },
+            { p: 'The graveyard reputation kept many investors away — which made the eventual first approval all the more notable.' },
+            { callout: 'MASH is a case study in why a huge market is not enough. Multifactorial biology plus biopsy endpoints made it a graveyard for years. When an area has a brutal endpoint and a validated-but-complex biology, discount the pipeline heavily until someone actually clears the bar.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'mash3',
+          title: 'The breakthrough &amp; mechanism landscape',
+          body: [
+            { p: 'In 2024 the first FDA-approved MASH drug arrived: Rezdiffra (resmetirom), a thyroid hormone receptor-β (THR-β) agonist from Madrigal. It acts in the liver to improve fat metabolism and, crucially, showed fibrosis improvement on biopsy — clearing the bar that had defeated so many.' },
+            { p: 'Rezdiffra opened the market, but it is one entry in a broad mechanistic landscape still in development:' },
+            { ul: [
+              'THR-β agonists (Rezdiffra) — the first-approved class',
+              'FGF21 analogs (Akero\'s efruxifermin, 89bio\'s pegozafermin) — strong fibrosis data in trials',
+              'GLP-1 and incretins — from cardiometabolic, treating the metabolic root (next lesson)',
+              'Pan-PPAR agonists and others in the pipeline'
+            ] },
+            { callout: 'Rezdiffra proved MASH is druggable — a genuine first-in-class win. But it is the opening move: FGF21 analogs and, above all, the incretins are coming, so the first approval does not settle who wins the market.', kind: '' }
+          ]
+        },
+        {
+          id: 'mash4',
+          title: 'The GLP-1 disruption',
+          body: [
+            { p: 'The biggest question hanging over MASH is not whether it is druggable — Rezdiffra answered that — but whether the GLP-1 drugs will simply absorb it.' },
+            { p: 'MASH is largely a consequence of obesity and metabolic disease. GLP-1 and dual agonists (semaglutide, tirzepatide) treat that root cause — and trials (such as semaglutide\'s ESSENCE) show they improve MASH too. If a patient is already on a GLP-1 for weight and diabetes and it also clears their liver disease, does a dedicated liver drug get squeezed out?' },
+            { ul: [
+              'The case for GLP-1s eating MASH — they treat the cause, huge existing patient overlap, one drug for many problems',
+              'The case for dedicated drugs — not everyone tolerates or responds to GLP-1s; liver-directed drugs (THR-β, FGF21) may add fibrosis benefit on top; combinations are likely'
+            ] },
+            { callout: 'MASH is where the GLP-1 wave collides with a new market. The investing question is less "does the drug work?" and more "will the incretins that treat the cause leave room for a dedicated liver drug?" Treating the root cause can eat a downstream market.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'mash5',
+          title: 'The MASH investing angle',
+          body: [
+            { p: 'MASH is a high-variance, high-overlap bet: a genuinely huge potential market with a brutal history, a first approval, and a giant metabolic shadow over it.' },
+            { h: 'Attractive' },
+            { ul: [
+              'Enormous eligible population (tied to obesity and diabetes)',
+              'First-in-class proof that it is druggable, with several mechanisms showing strong data',
+              'M&amp;A interest — the big metabolic players want a liver play'
+            ] },
+            { h: 'Watch' },
+            { ul: [
+              'The market size is still largely a projection, not realised sales',
+              'Biopsy endpoints and label restrictions gate uptake',
+              'The GLP-1 overhang could cap dedicated drugs; the graveyard history demands humility'
+            ] },
+            { p: 'Applying the tools: treat the market size as a projection to be discounted, not a given; weigh the GLP-1 overhang as a structural competitor; for clinical-stage FGF21 and next-gen names, respect the historical base rate; and price the incumbent-metabolic-giant threat.' },
+            { callout: 'MASH rewards separating "druggable" (now proven) from "big commercial market" (still uncertain). The GLP-1 overhang and biopsy-gated uptake mean a scientific win may not translate to the projected billions. Discount the TAM, respect the history.', kind: '' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'nephrology',
+      title: 'Nephrology / Renal',
+      tier: 2.5,
+      dataKey: 'nephrology',
+      blurb: 'Kidney disease — a long-stagnant area suddenly turned into a hotspot.',
+      lessons: [
+        {
+          id: 'neph1',
+          title: 'Nephrology — the shape of the area',
+          body: [
+            { p: 'Nephrology covers kidney disease — chronic kidney disease (CKD, often driven by diabetes and hypertension), plus specific conditions like IgA nephropathy and polycystic kidney disease (ADPKD), and the anemia and mineral problems that come with failing kidneys.' },
+            { p: 'It was long one of the most underserved areas — for decades, little beyond blood-pressure control and dialysis. Then it became one of the hottest: SGLT2 inhibitors proved they protect the kidneys (expanding out of diabetes into CKD), and a wave of new drugs hit rare kidney diseases such as IgA nephropathy.' },
+            { ul: [
+              'SGLT2 inhibitors\' cardiorenal data unlocked CKD (a big overlap with cardiometabolic)',
+              'Non-steroidal MRAs (finerenone) for diabetic kidney disease',
+              'A burst of IgA nephropathy approvals — endothelin antagonists, complement inhibitors, gut-targeted budesonide',
+              'ADPKD and renal anemia as further specialist niches'
+            ] },
+            { callout: 'Nephrology is the "graveyard to hotspot" story — a long-stagnant area revitalised when a mechanism (SGLT2\'s cardiorenal protection) unlocked it and rare kidney diseases became druggable. It also shows the cardiometabolic convergence from the kidney\'s side. The deep-dive lessons below unpack it.', kind: '' }
+          ]
+        },
+        {
+          id: 'neph2',
+          title: 'The SGLT2 cardiorenal revolution',
+          body: [
+            { p: 'Nephrology\'s revival began with a discovery nobody planned. SGLT2 inhibitors were designed as diabetes drugs — they make the kidney excrete glucose. Then large trials found they dramatically protected the kidneys AND the heart, even in people without diabetes.' },
+            { p: 'That turned a diabetes pill into a kidney and heart-failure drug. Farxiga (dapagliflozin) and Jardiance (empagliflozin) won chronic-kidney-disease and heart-failure indications, and Farxiga became AstraZeneca\'s single largest product (see the panel) — driven substantially by this expansion beyond diabetes.' },
+            { ul: [
+              'The pattern — a mechanism that keeps finding new indications (diabetes → heart failure → CKD) compounds into a mega-franchise',
+              'The convergence — SGLT2s blur the line between diabetes, cardiology and nephrology (the cardiometabolic continuum, seen from the kidney)'
+            ] },
+            { callout: 'The SGLT2 story is the label-expansion lesson at its most dramatic — a diabetes drug that became a cornerstone of kidney and heart care. When a mechanism protects multiple organs, the indications and the revenue compound. It also single-handedly revived nephrology as an investable area.', kind: '' }
+          ]
+        },
+        {
+          id: 'neph3',
+          title: 'The IgA nephropathy wave',
+          body: [
+            { p: 'While SGLT2s revived the broad CKD market, one specific rare kidney disease — IgA nephropathy — went from neglected to one of the most crowded races in the industry in just a few years.' },
+            { p: 'IgA nephropathy (an immune disorder that damages the kidney\'s filters) had almost no targeted treatments. Then a burst of approvals arrived, each with a different mechanism:' },
+            { ul: [
+              'Gut-targeted budesonide (Tarpeyo) — dampening the immune source',
+              'Endothelin / angiotensin blockade (Filspari) — protecting the filter (a fast-growing launch, see the panel)',
+              'Complement inhibitors (Fabhalta and others) — hitting the immune pathway',
+              'Several more mechanisms in late-stage trials'
+            ] },
+            { p: 'A disease with no drugs became a disease with several competing mechanisms almost overnight — a mini gold rush, and a reminder that a validated target attracts a crowd fast.' },
+            { callout: 'IgA nephropathy shows how quickly a neglected rare disease becomes crowded once it is druggable. Multiple mechanisms now compete for the same patients — great for patients, but a warning that "first approval" is not a durable monopoly when rivals with different mechanisms are close behind.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'neph4',
+          title: 'ADPKD, anemia &amp; the roxadustat lesson',
+          body: [
+            { p: 'Beyond CKD and IgA nephropathy, nephrology has several specialist niches — and one instructive regulatory cautionary tale.' },
+            { ul: [
+              'ADPKD (polycystic kidney disease) — a genetic disease; tolvaptan (Jynarque) slows cyst growth, a durable specialist franchise',
+              'Renal anemia — failing kidneys cause anemia; long treated with EPO agents, with oral HIF-PH inhibitors as a newer class',
+              'Hyperkalemia, mineral-bone disease and dialysis-adjacent markets round it out'
+            ] },
+            { h: 'The roxadustat lesson' },
+            { p: 'Roxadustat, an oral HIF-PH inhibitor for renal anemia, was approved in China and Europe but rejected by the FDA (2021) over safety concerns — a reminder that regulators in different regions can reach opposite conclusions, and that a drug approved elsewhere is not a sure thing in the US.' },
+            { callout: 'Nephrology\'s niches (ADPKD, anemia) are specialist, durable markets — but roxadustat is the cautionary tale: approval in one region does not guarantee approval in another. Regional regulatory divergence is a real, underrated risk.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'neph5',
+          title: 'The nephrology investing angle',
+          body: [
+            { p: 'Nephrology went from graveyard to hotspot, which shapes the opportunity: revived broad markets, a crowded rare-disease race, and specialist niches.' },
+            { h: 'Attractive' },
+            { ul: [
+              'SGLT2s created durable mega-franchises through organ-spanning label expansion',
+              'A wave of rare-kidney-disease approvals brings orphan economics; big pharma has re-entered',
+              'The cardiometabolic overlap brings scale'
+            ] },
+            { h: 'Watch' },
+            { ul: [
+              'IgA nephropathy is already crowded — first-mover advantage is fragile',
+              'Much of the value (SGLT2s) accrues to cardiometabolic incumbents, not pure-play nephrology',
+              'Regional regulatory divergence (roxadustat); CKD trials are long and expensive'
+            ] },
+            { p: 'Applying the tools: treat SGLT2 / broad-CKD as a label-expansion franchise owned by metabolic giants; for IgA nephropathy names, map the crowded competitive set (several mechanisms, same patients); apply rare-disease economics to the orphan kidney diseases; and weight regional regulatory risk.' },
+            { callout: 'Nephrology rewards knowing which story you are buying — a diabetes-giant\'s organ-spanning franchise (SGLT2), a crowded rare-disease race (IgA nephropathy), or a specialist niche (ADPKD). The revival is real, but so is the crowding and the cardiometabolic overlap.', kind: '' }
           ]
         }
       ]
