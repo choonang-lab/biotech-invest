@@ -344,6 +344,30 @@ window.ATLAS_DATA = {
         { name: 'Pfizer / Eli Lilly', franchise: 'historic NGF (tanezumab) — discontinued 2021; Lilly re-entered the Nav1.8 space via SiteOne acquisition (up to $1.0B, May 2025)', asOf: '2025', pending: false },
         { name: 'Heron Therapeutics', franchise: 'Zynrelef (non-opioid post-operative analgesia) — ≈$25.5M net revenue FY2024 (+44%)', asOf: 'FY2024', pending: false }
       ]
+    },
+    womens: {
+      asOf: '2024-25', pending: true,
+      marketSize: { value: '≈ $40B+', note: 'women\'s health / reproductive health — approximate and highly definition-dependent (contraception, menopause, endometriosis/fibroids, fertility, maternal health); to verify', asOf: '2024', pending: true },
+      moaClasses: [
+        'GnRH antagonists (endometriosis &amp; uterine fibroids)',
+        'NK3-receptor antagonists (non-hormonal menopause / hot flashes)',
+        'Hormonal therapies (contraception &amp; menopausal hormone therapy)',
+        'Neuroactive steroids (postpartum depression)',
+        'Fertility hormones (IVF / assisted reproduction)'
+      ],
+      landmarkDrugs: [
+        { name: 'Veozah (fezolinetant)', moa: 'first-in-class NK3-receptor antagonist for menopausal hot flashes — non-hormonal; Astellas; FDA-approved 2023', asOf: '2023', pending: true },
+        { name: 'Orilissa / Myfembree', moa: 'GnRH antagonists for endometriosis &amp; uterine fibroids (elagolix, AbbVie; relugolix combo, Sumitomo/Myovant)', asOf: '2024', pending: true },
+        { name: 'Nexplanon', moa: 'long-acting contraceptive implant — a women\'s-health cornerstone franchise, Organon', asOf: '2024', pending: true },
+        { name: 'Makena (17-OHPC)', moa: 'preterm-birth drug WITHDRAWN 2023 after a confirmatory trial failed — a cautionary case', asOf: '2023', pending: true }
+      ],
+      keyPlayers: [
+        { name: 'Organon', franchise: 'women\'s-health-focused spin-off from Merck (2021) — contraception (Nexplanon), fertility', asOf: '2024', pending: true },
+        { name: 'AbbVie', franchise: 'Orilissa / Oriahnn (elagolix) for endometriosis &amp; fibroids', asOf: '2024', pending: true },
+        { name: 'Astellas', franchise: 'Veozah (fezolinetant) — non-hormonal menopause', asOf: '2024', pending: true },
+        { name: 'Sumitomo (Myovant)', franchise: 'Myfembree / Orgovyx (relugolix)', asOf: '2024', pending: true },
+        { name: 'Bayer / Ferring', franchise: 'contraception, menopause (Bayer); fertility (Ferring)', asOf: '2024', pending: true }
+      ]
     }
   }
 };
@@ -1671,6 +1695,107 @@ window.ATLAS = {
             { h: 'The reframing' },
             { p: 'Value a pain asset on the gap between its addressable population and its reimbursed reality. The science can be genuinely novel and the label genuinely clean, and the stock can still disappoint if payers will not pay a premium over generics. The winners are drugs that are not just non-addictive, but demonstrably worth their price to the system — and, ideally, a validated mechanism that can travel from a small acute-pain beachhead into far larger chronic-pain markets.' },
             { callout: 'Pain\'s trap for investors is assuming a clean label equals a big market. It does not: the drug is priced against near-free generics, so reimbursement and real-world uptake — not just the trial — decide whether a scientific breakthrough becomes a commercial one.', kind: '' }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'womens',
+      title: 'Women\'s Health',
+      tier: 3,
+      dataKey: 'womens',
+      blurb: 'A long-neglected market catching up — huge unmet needs, but a commercial track record that demands discipline.',
+      lessons: [
+        {
+          id: 'wh1',
+          title: 'Women\'s health — a neglected market catching up',
+          body: [
+            { p: 'Women\'s health, as a therapeutic area, covers conditions specific to or disproportionately affecting women across the life course — contraception, menopause, endometriosis and uterine fibroids, fertility, maternal and postpartum health, and post-menopausal bone loss (gynecologic cancers are usually mapped under oncology).' },
+            { p: 'What makes it distinctive is not a shared biology but a shared history: neglect. For decades women were under-represented in clinical research, and conditions affecting hundreds of millions were under-studied, under-diagnosed and commercially overlooked. That legacy created enormous unmet need — but also a fraught commercial track record that every investor here has to respect.' },
+            { ul: [
+              'Vast, under-served populations — menopause touches roughly half of everyone who lives long enough; endometriosis affects on the order of one in ten women',
+              'A history of under-investment and under-diagnosis relative to disease burden',
+              'A recent surge of interest and capital ("women\'s health" / FemTech) trying to close the gap',
+              'But a commercial minefield — small markets, stigma, safety-scare overhangs, and notorious flops'
+            ] },
+            { callout: 'Women\'s health is the Atlas\'s clearest case of a market defined by historical neglect: the unmet need is real and large, yet turning it into durable commercial franchises has proven unusually hard. Holding both truths at once is the whole skill.', kind: '' }
+          ]
+        },
+        {
+          id: 'wh2',
+          title: 'The neglect & the opportunity',
+          body: [
+            { p: 'The modern women\'s-health opportunity is a direct consequence of how the field was historically treated. Understanding the neglect explains both the size of the unmet need and why it is only now being addressed.' },
+            { h: 'The historical gap' },
+            { ul: [
+              'Women were routinely excluded from clinical trials until US policy changes in the early 1990s pushed for their inclusion — so much foundational drug data was generated in men',
+              'Conditions like endometriosis are notorious for long diagnostic delays, often many years from first symptoms',
+              'Menopause — a universal transition — has been strikingly under-treated, with few dedicated modern therapies until recently',
+              'Research funding and commercial investment long lagged the disease burden these conditions carry'
+            ] },
+            { h: 'Why the opportunity is real' },
+            { p: 'Neglect leaves large, identifiable populations with poorly-met needs — which is the raw material of a genuine market. Several conditions affect enormous numbers of people, are chronic or span years of life, and have inadequate existing options. When under-diagnosis is the norm, better awareness and diagnosis can expand the treated population for years. And a cultural shift — patients and clinicians treating these conditions as legitimate medical problems rather than things to endure — is a slow but powerful tailwind.' },
+            { callout: 'The investment case starts from a structural fact: decades of neglect left big populations under-served. That is the opportunity. But "large unmet need" is the beginning of the analysis, not the end — the next lesson shows why it so often failed to convert.', kind: '' }
+          ]
+        },
+        {
+          id: 'wh3',
+          title: 'The commercial minefield',
+          body: [
+            { p: 'If the unmet need is so large, why has women\'s health been such a difficult place to build durable franchises? Because the area carries a set of commercial hazards that repeatedly turned real medical need into disappointing sales. This is the lesson that keeps investors honest.' },
+            { h: 'The safety-scare overhang' },
+            { p: 'The defining example is menopausal hormone therapy. For years it was widely prescribed — until a large study (the Women\'s Health Initiative, results from 2002) linked certain hormone therapy to raised risks, triggering a collapse in use almost overnight. Later re-analysis painted a more nuanced, age-dependent picture, but the damage was done: a whole category was under-used for two decades on the strength of one alarming headline. A single safety scare can freeze a market far longer, and far more broadly, than the underlying data warrants.' },
+            { h: 'The other hazards' },
+            { ul: [
+              'Fragmented, sometimes small markets — many conditions are real but support a smaller branded market than the raw prevalence suggests',
+              'Stigma and under-treatment — conditions patients are reluctant to discuss stay under-diagnosed and under-treated even when therapies exist',
+              'Reimbursement and pricing pressure — especially where cheap generic hormones or contraceptives set the price anchor',
+              'A track record of high-profile flops and withdrawals'
+            ] },
+            { h: 'Cautionary cases' },
+            { p: 'The history is littered with them. A drug marketed as a "female Viagra" for low sexual desire drew enormous attention but sold poorly, hampered by modest efficacy, side effects and restrictions. A long-standing preterm-birth drug was pulled from the US market in 2023 after a confirmatory trial failed to show benefit — a reminder that even entrenched women\'s-health products can rest on thin evidence. Each is a warning that attention and need do not guarantee a commercial win.', },
+            { callout: 'Women\'s health punishes the naive "huge unmet need = huge market" thesis. Safety scares, stigma, small effective markets, and a real history of flops mean you must underwrite the COMMERCIAL path — not just the medical need.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'wh4',
+          title: 'The modern toolkit & the players',
+          body: [
+            { p: 'Despite the hazards, the last several years have delivered a genuine wave of innovation — new mechanisms addressing conditions that had few good options. Knowing the modern toolkit and who owns it is how you read the field today.' },
+            { h: 'The modern mechanisms' },
+            { ul: [
+              'GnRH antagonists for endometriosis and uterine fibroids — oral hormone-modulating drugs (e.g. elagolix, relugolix combinations) that gave these conditions their first new branded options in years',
+              'NK3-receptor antagonists for menopause — a non-hormonal way to treat hot flashes, sidestepping the hormone-therapy safety overhang (fezolinetant was the first approved; others are in development)',
+              'Neuroactive steroids for postpartum depression — a new, rapid-acting oral option in an area long neglected',
+              'Contraception and fertility — long-acting contraceptives and IVF hormones, the durable backbone of the field'
+            ] },
+            { h: 'The players' },
+            { ul: [
+              'Organon — spun off from Merck in 2021 explicitly as a women\'s-health-focused company (contraception like Nexplanon, fertility, plus biosimilars)',
+              'AbbVie — Orilissa / Oriahnn (elagolix) in endometriosis and fibroids',
+              'Astellas — Veozah (fezolinetant), the non-hormonal menopause breakthrough',
+              'Sumitomo (Myovant) — Myfembree / Orgovyx (relugolix)',
+              'Bayer and Ferring — long-standing contraception, menopause and fertility franchises'
+            ] },
+            { callout: 'The mechanisms finally match the need: GnRH antagonists for endometriosis and fibroids, and a non-hormonal option for menopause that dodges the hormone-therapy scare. The science has caught up — the open question is always whether the commercial market does too.', kind: '' }
+          ]
+        },
+        {
+          id: 'wh5',
+          title: 'The investing angle',
+          body: [
+            { p: 'Women\'s health offers a seductive pitch — enormous under-served populations, a cultural tailwind, and fresh mechanisms — wrapped around a hard-won lesson: unmet need is necessary but nowhere near sufficient. The discipline here is to underwrite the path from medical need to reimbursed, durable revenue.' },
+            { h: 'What to underwrite' },
+            { ul: [
+              'Effective market size, not prevalence — how many patients are diagnosed, treated, AND on a branded drug, versus the headline population',
+              'Reimbursement &amp; pricing — is there a cheap generic hormone or contraceptive setting the price anchor the new drug must beat?',
+              'The stigma / diagnosis gap — is the condition one patients and doctors will actively treat, or quietly tolerate?',
+              'Safety-overhang risk — could one study or scare freeze the category, as happened to hormone therapy?',
+              'Durability — does the condition support years of treatment (chronic, life-stage) or is it a one-off?'
+            ] },
+            { h: 'The reframing' },
+            { p: 'Treat "large unmet need" as the setup, not the thesis. The winners in women\'s health are the drugs that convert genuine need into a diagnosed, reimbursed, de-stigmatised market — often by offering a clearly better or safer mechanism (like a non-hormonal menopause therapy) that gives patients and payers a concrete reason to switch. The renewed capital and attention flowing into the space is a real tailwind, but it does not repeal the commercial hazards; it just makes disciplined underwriting more valuable.' },
+            { callout: 'The women\'s-health investor\'s edge is refusing to stop at "the need is huge." Underwrite the market that actually gets diagnosed, reimbursed and treated — and respect that a single safety scare can freeze the whole category. Need is the setup; the commercial path is the thesis.', kind: '' }
           ]
         }
       ]
