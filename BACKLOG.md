@@ -121,7 +121,7 @@ Area built (tier:3, "T3" badge; ATLAS_DATA.areas.pain + pain1–pain5). Distinct
 - [x] `pain3` — the analgesia graveyard (placebo response; efficacy-vs-CNS-safety trap; NGF/tanezumab joint-safety failure) [warn callout]
 - [x] `pain4` — toolkit & the sodium-channel breakthrough (generic NSAIDs/gabapentinoids/SNRIs/anesthetics; Nav1.8/Nav1.7 peripheral blockers; Journavx 2025; Vertex/Pacira/Heron)
 - [x] `pain5` — investing angle (reimbursement crux — payer access/pricing vs cheap generics; acute beachhead → chronic prize)
-Research figures to verify/apply: Journavx (suzetrigine) approval Jan 2025 + early sales, Exparel (Pacira) revenue, Lyrica/pregabalin historic peak, tanezumab discontinuation, non-opioid pain market size, players Vertex/Pacira/Heron.
+**Figures VERIFIED & applied (research pass wf_3d752e03-13b, primary sources — FDA + Vertex/Pacira/Heron filings):** Journavx (suzetrigine) FDA-approved 30 Jan 2025, first-in-class Nav1.8, not DEA-scheduled, ≈$33M net sales first 9mo 2025; Exparel ≈$549M + Pacira total ≈$701M + Zilretta ≈$118M FY2024; Heron Zynrelef ≈$25.5M FY2024 (+44%); tanezumab NGF killed by 19-1 FDA adcom Mar 2021; Lilly re-entered Nav1.8 via SiteOne buy (up to $1.0B, May 2025). pain5 enriched with the NOPAIN-style bundled-payment reimbursement reform (evergreen framing). STILL pending: market size (no reliable figure survived — reframed to the verified point that branded non-opioid is a small slice) + Lyrica historic peak (unverified). ?v=64, sw btgym-v7.
 
 ## Atlas roadmap (remaining)
 - [x] All 4 Tier-1 areas (Oncology, Cardiometabolic, Immunology, Neuroscience) — done, verified panels.

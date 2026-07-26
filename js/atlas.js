@@ -323,8 +323,8 @@ window.ATLAS_DATA = {
       ]
     },
     pain: {
-      asOf: '2025', pending: true,
-      marketSize: { value: '≈ $10B+', note: 'non-opioid analgesics — approximate; the broader pain-management market is far larger but dominated by cheap generics (NSAIDs, generic opioids, gabapentinoids); to verify', asOf: '2025', pending: true },
+      asOf: '2024-25', pending: false,
+      marketSize: { value: 'small &amp; branded', note: 'no reliable market-size figure survived verification — treat as illustrative. The key point IS verified: the broad pain market is dominated by cheap generics, so the branded non-opioid slice is modest — the leading specialist (Pacira) had ≈$701M total revenue in FY2024, not tens of billions', asOf: '2024', pending: true },
       moaClasses: [
         'Peripheral sodium-channel blockers (Nav1.8 / Nav1.7)',
         'NSAIDs &amp; COX-2 inhibitors (mostly generic)',
@@ -333,16 +333,16 @@ window.ATLAS_DATA = {
         'Local &amp; long-acting anesthetics (e.g. bupivacaine) and topicals (lidocaine, capsaicin)'
       ],
       landmarkDrugs: [
-        { name: 'Journavx (suzetrigine, VX-548)', moa: 'first-in-class Nav1.8 inhibitor for acute pain — non-opioid, non-addictive; Vertex; FDA-approved Jan 2025', asOf: '2025', pending: true },
-        { name: 'Exparel (liposomal bupivacaine)', moa: 'long-acting local anesthetic for post-surgical pain, Pacira', asOf: '2025', pending: true },
-        { name: 'Lyrica (pregabalin)', moa: 'gabapentinoid for neuropathic pain — former mega-blockbuster, now off-patent/generic', asOf: '2025', pending: true },
-        { name: 'Tanezumab (NGF antibody)', moa: 'anti-NGF for osteoarthritis — programme discontinued (joint-safety failure), Pfizer / Lilly', asOf: '2021', pending: true }
+        { name: 'Journavx (suzetrigine, VX-548)', moa: 'first-in-class Nav1.8 inhibitor for acute pain — non-opioid, not DEA-scheduled; Vertex; FDA-approved 30 Jan 2025 (first new pain class in 20+ years). Early launch: ≈$33M net sales in the first 9 months of 2025', asOf: '2025', pending: false },
+        { name: 'Exparel (liposomal bupivacaine)', moa: 'long-acting local anesthetic for post-surgical pain, Pacira — ≈$549M net product sales FY2024', asOf: 'FY2024', pending: false },
+        { name: 'Lyrica (pregabalin)', moa: 'gabapentinoid for neuropathic pain — former mega-blockbuster, now off-patent/generic (historic peak sales not verified here)', asOf: '2025', pending: true },
+        { name: 'Tanezumab (NGF antibody)', moa: 'anti-NGF for osteoarthritis — discontinued after an FDA advisory committee voted 19-1 against its risk/benefit (Mar 2021), Pfizer / Lilly', asOf: '2021', pending: false }
       ],
       keyPlayers: [
-        { name: 'Vertex Pharmaceuticals', franchise: 'Journavx (suzetrigine) — the non-opioid acute-pain breakthrough; deep Nav sodium-channel pipeline', asOf: '2025', pending: true },
-        { name: 'Pacira BioSciences', franchise: 'Exparel, Zilretta — non-opioid post-surgical &amp; osteoarthritis pain', asOf: '2025', pending: true },
-        { name: 'Pfizer / Eli Lilly', franchise: 'historic NGF (tanezumab) programme — discontinued; CGRP migraine assets elsewhere', asOf: '2021', pending: true },
-        { name: 'Heron Therapeutics', franchise: 'Zynrelef (non-opioid post-operative analgesia)', asOf: '2025', pending: true }
+        { name: 'Vertex Pharmaceuticals', franchise: 'Journavx (suzetrigine) — the non-opioid acute-pain breakthrough; deep Nav pipeline (Phase 3 in diabetic peripheral neuropathy ongoing)', asOf: '2025', pending: false },
+        { name: 'Pacira BioSciences', franchise: 'Exparel ≈$549M + Zilretta ≈$118M; total revenue ≈$701M FY2024 — the non-opioid pain specialist', asOf: 'FY2024', pending: false },
+        { name: 'Pfizer / Eli Lilly', franchise: 'historic NGF (tanezumab) — discontinued 2021; Lilly re-entered the Nav1.8 space via SiteOne acquisition (up to $1.0B, May 2025)', asOf: '2025', pending: false },
+        { name: 'Heron Therapeutics', franchise: 'Zynrelef (non-opioid post-operative analgesia) — ≈$25.5M net revenue FY2024 (+44%)', asOf: 'FY2024', pending: false }
       ]
     }
   }
@@ -1659,6 +1659,7 @@ window.ATLAS = {
             { p: 'Non-opioid pain has the most seductive setup in the Atlas — a near-universal disease, a societal push away from opioids, and a freshly validated mechanism. And yet the investing lesson is a cautionary one: in pain, a clean scientific win does not automatically become a commercial one. The reason is the competition it is priced against.' },
             { h: 'The reimbursement crux' },
             { p: 'A new non-opioid analgesic does not compete against nothing — it competes against generic opioids, NSAIDs and gabapentinoids that cost pennies. To justify a branded price, it must convince payers that avoiding addiction and side effects is worth paying a large premium for. That is a value-capture problem: non-addictiveness is a benefit to society and to the health system broadly, but the payer writing the cheque may still gate access on price. Formulary position, prior-authorisation hurdles, and how much of the label\'s promise translates into paid prescriptions matter as much as the trial result.' },
+            { p: 'This is such a real barrier that policymakers have legislated to fix it. A recurring problem has been that hospitals are paid a single bundled fee for a surgery, giving them no incentive to buy a pricier non-opioid on top — so recent US reforms have begun carving non-opioid analgesics OUT of the surgical bundle for separate reimbursement. When the commercial fate of a validated drug hinges on payment-policy plumbing like this, you are looking at an access-driven market, not a science-driven one.' },
             { h: 'What to actually watch' },
             { ul: [
               'Payer access &amp; pricing — is the drug on formularies at a tier patients can afford, or buried behind prior authorisation?',
