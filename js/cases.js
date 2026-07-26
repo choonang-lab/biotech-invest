@@ -17,12 +17,13 @@ window.CASES = {
         asOf: '2025', pending: true,
         rows: [
           { label: 'Company', value: 'Nektar Therapeutics (NKTR) — a San Francisco biotech', asOf: '2025', pending: false },
-          { label: 'Core platform', value: 'PEGylation — a drug-delivery chemistry that attaches polyethylene glycol (PEG) to a molecule to improve its half-life and properties; historically monetised through partnerships and royalties on partners\' products', asOf: '2025', pending: false },
-          { label: 'The mega-deal (2018)', value: 'A Bristol Myers Squibb collaboration on bempegaldesleukin (bempeg, NKTR-214), an experimental IL-2 pathway agonist — one of the largest immuno-oncology deals of its era (≈$1.85B upfront plus a ≈$1.0B equity investment)', asOf: '2018', pending: true },
-          { label: 'The collapse (2022)', value: 'The Phase 3 programme of bempeg + Opdivo failed to beat Opdivo alone (lead melanoma trial PIVOT IO-001); BMS ended the collaboration and Nektar cut a large share of its workforce (~70%)', asOf: '2022', pending: true },
-          { label: 'Stock impact', value: 'Shares lost the large majority of their value versus the 2018-era highs', asOf: '2022', pending: true },
-          { label: 'The pivot', value: 'Refocused on immunology — rezpegaldesleukin (rezpeg, NKTR-358), an IL-2 designed to expand regulatory T cells (Tregs) for autoimmune disease (e.g. atopic dermatitis, alopecia areata)', asOf: '2025', pending: true },
-          { label: 'Survival question', value: 'For a post-blowup, catalyst-dependent biotech, cash runway vs burn is the central question — verify current cash position and rezpeg readout timing', asOf: '2025', pending: true }
+          { label: 'Core platform', value: 'PEGylation / advanced polymer conjugates — a drug-delivery chemistry that attaches polyethylene glycol (PEG) to a molecule to improve its half-life and properties. It underpins approved partnered products incl. Movantik/naloxegol (AstraZeneca, 2014) and Adynovate (Baxalta/Takeda, 2015); Nektar sold those royalty streams to HealthCare Royalty for ≈$150M in 2020', asOf: '2020', pending: false },
+          { label: 'The mega-deal (Feb 2018)', value: 'A Bristol Myers Squibb collaboration on bempegaldesleukin (bempeg, NKTR-214), a CD122-biased PEGylated IL-2 agonist to combine with Opdivo. The ≈$1.85B "upfront" headline was actually $1.0B cash + $850M equity (8.28M shares at $102.60), plus up to $1.43B dev/reg + $350M sales milestones and a 65/35 Nektar/BMS profit split', asOf: '2018', pending: false },
+          { label: 'The collapse (2022)', value: 'The Phase 3 bempeg + Opdivo programme failed — the lead first-line metastatic melanoma trial PIVOT IO-001 missed all endpoints (Mar 2022); the renal-cell (PIVOT-09) and urothelial studies also failed. BMS and Nektar ended the entire global programme on 14 Apr 2022', asOf: '2022', pending: false },
+          { label: 'Restructuring (2022)', value: 'Nektar cut ~70% of its workforce (500+ jobs) about 11 days after the BMS termination', asOf: '2022', pending: false },
+          { label: 'Stock impact', value: 'BMS had bought Nektar equity at $102.60/share near the 2018 peak; the shares later fell to a small fraction of that (exact low not verified in this snapshot)', asOf: '2018-22', pending: true },
+          { label: 'The pivot', value: 'Refocused on immunology with rezpegaldesleukin (rezpeg, NKTR-358), a Treg-stimulating PEGylated IL-2. Nektar regained worldwide rights from Eli Lilly (Apr 2023) after Lilly declined to advance it. Phase 2b REZOLVE-AD in atopic dermatitis MET its primary endpoint; REZOLVE-AA in alopecia areata narrowly MISSED in the full population (topline Dec 2025)', asOf: '2025', pending: false },
+          { label: 'Survival question', value: 'For a post-blowup, catalyst-dependent biotech, cash runway vs burn is the central question — current cash position and royalty revenue not verified in this snapshot; check the latest 10-K/10-Q', asOf: '2025', pending: true }
         ]
       },
       lessons: [
@@ -47,7 +48,8 @@ window.CASES = {
           title: 'The mega-deal',
           body: [
             { p: 'Nektar\'s big swing was bempegaldesleukin — "bempeg" (NKTR-214), a PEGylated form of interleukin-2 (IL-2) designed to stimulate the immune system to fight cancer. It arrived at the peak of the immuno-oncology (IO) boom, when checkpoint inhibitors like Opdivo and Keytruda were transforming cancer treatment and every company wanted a drug that would combine with them.' },
-            { p: 'In 2018 Nektar signed a landmark collaboration with Bristol Myers Squibb (BMS) to develop bempeg alongside BMS\'s Opdivo. The terms were enormous for a single asset — one of the largest upfront payments in IO history, plus a large equity investment (see the dated facts panel). Overnight, a mid-cap platform company had a big-pharma partner validating its lead drug and a balance sheet transformed.' },
+            { p: 'In 2018 Nektar signed a landmark collaboration with Bristol Myers Squibb (BMS) to develop bempeg alongside BMS\'s Opdivo. The terms were enormous for a single asset (see the dated facts panel). Overnight, a mid-cap platform company had a big-pharma partner validating its lead drug and a balance sheet transformed.' },
+            { p: 'It is worth reading those terms closely, because the headline flattered the deal. The widely-quoted "upfront" number was not all cash — a large chunk was BMS buying Nektar stock at a premium price. An equity purchase funds the company, but it is a bet on the shares, not a guaranteed payment for the drug; and the biggest milestone and profit-share dollars were contingent on success that never came. The number everyone repeated was bigger, and softer, than it looked.' },
             { h: 'Why it felt like de-risking' },
             { ul: [
               'A sophisticated big-pharma buyer had done deep diligence and paid up — surely that meant the science was sound?',
@@ -81,6 +83,7 @@ window.CASES = {
             { p: 'After bempeg, Nektar did what surviving biotechs do — it regrouped around what was left. The interesting question for an investor is not just "what went wrong" but "is there a credible second act?" That turns on the remaining pipeline, the cash to fund it, and whether the new bet is genuinely different from the old one.' },
             { h: 'The pivot to immunology' },
             { p: 'Nektar refocused on immunology and its other IL-2 asset, rezpegaldesleukin ("rezpeg", NKTR-358). Cleverly, rezpeg is designed to do almost the opposite of bempeg: rather than revving up the immune system to attack cancer, it aims to expand regulatory T cells (Tregs) — the cells that calm the immune system — to treat autoimmune and inflammatory diseases such as atopic dermatitis and alopecia areata. The same IL-2 platform, pointed at a different problem.' },
+            { p: 'One detail sets the scrutiny bar: rezpeg had itself been partnered with a big pharma (Eli Lilly), which later handed the rights back rather than advancing it. A sophisticated partner walking away is a data point, not a verdict — but it is exactly the kind of signal to weigh when the same team asks you to believe in the next asset. As its later trials read out, the honest picture was mixed: a win in one disease, a narrow miss in another — precisely why a pivot must be judged indication-by-indication on its own controlled evidence.' },
             { h: 'How to underwrite a post-blowup pivot' },
             { ul: [
               'Cash runway vs burn — can the company fund its remaining programmes to their next meaningful readout without a dilutive raise from a position of weakness?',
@@ -101,7 +104,7 @@ window.CASES = {
               'Validation is not proof — a big-pharma upfront confirms a negotiation, not a mechanism; never let a marquee partner substitute for your own read of the data',
               'Mind the Phase 2-to-Phase 3 cliff — early, uncontrolled data is where drugs look best; the randomised trial against the real standard of care is where most fail',
               'Respect binary concentration — when one wholly-owned asset drives most of the value, a single readout can erase most of the company; that is a position-sizing problem, not just a science one',
-              'Listen to credible sceptics — mechanism doubts and short-seller scrutiny of the data preceded the failure; dismissing all bears as noise is how you miss the signal',
+              'Listen to credible sceptics — scientific doubts about the mechanism and the strength of the early data preceded the failure; dismissing every bear as noise is how you miss the signal',
               'Platform ≠ product — a diversified royalty platform and a single blockbuster bet are completely different risk profiles, even inside the same ticker'
             ] },
             { h: 'The reframing' },
