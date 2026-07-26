@@ -1849,7 +1849,12 @@ window.MODALITIES = [
     good: 'Delivers radiation directly to specific cells; pairs a diagnostic and therapy (theranostics).',
     limits: 'Isotope supply chain (short half-life), specialist administration centres.',
     moat: 'Isotope supply and targeting IP.',
-    examples: 'Targeted radioligand therapy in prostate cancer.' }
+    examples: 'Targeted radioligand therapy in prostate cancer.' },
+  { name: 'Live biotherapeutic (microbiome)', what: 'Live micro-organisms — a defined bacterial consortium or a processed fecal-microbiota product — given to reshape the gut microbiome.',
+    good: 'A genuinely novel mechanism (tuning the body\'s own microbial ecosystem); the first FDA approvals (2022-23) validated the category, with potential reach into immune, metabolic and gut-brain conditions.',
+    limits: 'Living organisms are hard to define and manufacture consistently; the mechanism is often poorly understood; a graveyard of failed trials and uncertain colonisation/durability; reimbursement for a "bug as a drug" is unproven.',
+    moat: 'Strain selection and manufacturing know-how plus hard-won clinical validation — but a nascent, still-unsettled barrier to entry.',
+    examples: 'Rebyota (Ferring) and Vowst (Seres / Nestle) — the first approved microbiome therapies, both for preventing recurrent C. difficile infection.' }
 ];
 
 /* Cross-cutting reference 2 — big-pharma PLAYER profiles (VOLATILE; dated, refreshable).

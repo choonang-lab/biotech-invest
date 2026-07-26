@@ -134,6 +134,7 @@ Area built (tier:3, "T3" badge; ATLAS_DATA.areas.womens + wh1–wh5). Distinctiv
 ## Atlas roadmap (remaining)
 - [x] All 4 Tier-1 areas (Oncology, Cardiometabolic, Immunology, Neuroscience) — done, verified panels.
 - [x] **Cross-cutting reference layers** (2026-07-24) — window.MODALITIES (9 evergreen modality cards: small molecule→mAb→ADC→bispecific→CAR-T→gene therapy→RNA→peptide→radiopharma, each with what/good-at/limits/moat/examples) + window.ATLAS_PLAYERS (12 dated big-pharma profiles from the verified area passes — focus/flagship/cliff/M&A, with asOf+pending badges). New viewModalities/viewPlayers, routes #/atlas/modalities & /players, Atlas-landing "Cross-cutting reference" section. Verified: 9 + 12 render, zero console errors, ?v=45.
+- [x] **Microbiome modality card** (2026-07-26) — added 10th MODALITIES card "Live biotherapeutic (microbiome)": defined bacterial consortia / fecal-microbiota products; novel mechanism validated by first FDA approvals (2022-23); limits = hard to define/manufacture, poorly-understood mechanism, trial graveyard, unproven reimbursement; examples Rebyota (Ferring) & Vowst (Seres/Nestlé) for recurrent C. difficile. Evergreen (no figures/research). Verified 10 cards render, 0 console errors. ?v=67, sw btgym-v10.
 - Optional: quarterly ATLAS_DATA refresh — nail residual `pending` figures (oncology Darzalex/Opdivo, cardiometabolic annual market size, immunology Dupixent, CNS Ocrevus/CGRP, and pending player rows Novo/Roche/Sanofi/Amgen).
 
 ## Done
