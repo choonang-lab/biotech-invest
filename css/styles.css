@@ -189,3 +189,21 @@ a.inline { color: var(--accent2); }
   body { padding: 0; background: #fff; }
   .app { max-width: none; }
 }
+
+/* Deep-dive track benchmark table (scrolls inside its card on phones) */
+.bench-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 8px 0; }
+.bench { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 13px; }
+.bench th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--ink-dim); padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.bench td { padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.bench tr:last-child td { border-bottom: none; }
+.bench .num { text-align: right; white-space: nowrap; }
+@media (max-width: 560px) {
+  .bench { min-width: 0; }
+  .bench thead { display: none; }
+  .bench tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .bench tr:last-child { border-bottom: none; }
+  .bench td { display: block; border: none; padding: 2px 0; }
+  .bench td.num { display: inline-block; text-align: left; margin-right: 16px; }
+  .bench td.num::before { content: attr(data-label); display: block; font-size: 11px; color: var(--ink-dim); }
+}

@@ -81,6 +81,7 @@ function viewHome() {
     tile('Capstone walkthrough', 'Analyse a fictional company end to end.', '#/capstone'),
     tile('Industry Atlas', 'Map the sector: areas, market size, players, MOA.', '#/atlas'),
     tile('Case studies', 'Real companies, studied for the judgment they teach.', '#/cases'),
+    tile('Deep-dive tracks', 'Specialise: endpoints, placebo rates and benchmarks in one area.', '#/tracks'),
     tile('Review deck' + (reviewDeck().length ? ' — ' + reviewDeck().length + ' due' : ''), 'Spaced repetition of the quiz questions you missed.', '#/review'),
     tile('Final exam' + (state.exam ? ' — best ' + state.exam.bestPct + '%' : ''), 'A cumulative test drawn from every module.', '#/exam'),
     tile('Cash runway calculator', 'How many quarters until they must raise?', '#/tools/runway'),
@@ -596,6 +597,13 @@ function viewSearch() {
         }
       });
     });
+    TRACKS.tracks.forEach(function (t) {
+      t.lessons.forEach(function (l) {
+        if ((t.name + ' ' + l.title + ' ' + lessonText(l)).toLowerCase().indexOf(q) >= 0) {
+          out.push({ type: 'Track', nav: '#/tracks/' + t.id + '/' + l.id, title: l.title, sub: t.name + ' track' });
+        }
+      });
+    });
     GLOSSARY.forEach(function (g) {
       if ((g.t + ' ' + g.d).toLowerCase().indexOf(q) >= 0) out.push({ type: 'Term', nav: '#/glossary', title: g.t, sub: g.d });
     });
@@ -758,6 +766,58 @@ function viewCaseLesson(cid, lid) {
     + '<div class="spacer"></div><button class="btn ghost small" data-nav="#/cases/' + cid + '">Back to ' + c.name + '</button></div>';
 }
 
+/* ---- Deep-dive tracks ---- */
+function findTrackDef(tid) { return TRACKS.tracks.find(function (t) { return t.id === tid; }); }
+
+function benchPanel(b) {
+  var rows = (b.rows || []).map(function (r) {
+    var num = (typeof r.d === 'number' && typeof r.pb === 'number');
+    var res = num ? r.d + '% vs ' + r.pb + '%' : '&mdash;';
+    var delta = num ? '+' + (r.d - r.pb) + ' pts' : (r.delta || '&mdash;');
+    var badge = '<span class="tag' + (r.pending ? ' med' : '') + '">' + r.asOf + (r.pending ? ' &middot; to verify' : '') + '</span>';
+    return '<tr><td><strong>' + r.drug + '</strong><div class="muted small">' + r.area + ' &middot; ' + r.endpoint + '</div></td>'
+      + '<td>' + r.trial + '<div style="margin-top:4px">' + badge + '</div></td>'
+      + '<td class="num" data-label="Drug vs placebo">' + res + '</td><td class="num" data-label="Difference"><strong>' + delta + '</strong></td></tr>';
+  }).join('');
+  return '<div class="card"><div class="row spread"><strong>Benchmark results</strong><span class="muted small">snapshot ' + b.asOf + '</span></div>'
+    + '<p class="small muted">' + b.note + '</p>'
+    + '<div class="bench-wrap"><table class="bench"><thead><tr><th>Drug &middot; disease &middot; endpoint</th><th>Trial</th><th class="num">Drug vs placebo</th><th class="num">Difference</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
+    + '<p class="small muted">Rounded, dated snapshot of published results — not live data. Cross-trial comparisons are a weak form of evidence; use these to calibrate, not to rank.</p></div>';
+}
+
+function viewTracks() {
+  var d = TRACKS;
+  app.innerHTML = '<div class="hero"><h1>Deep-dive tracks</h1><p class="muted">' + d.intro + '</p><div class="spacer"></div><span class="pill">Educational</span><span class="pill">Specialist level</span></div>'
+    + '<div class="card"><div class="muted small">' + d.disclaimer + '</div></div>'
+    + d.tracks.map(function (t) {
+      return '<div class="card mod" data-nav="#/tracks/' + t.id + '"><div class="meta"><div class="t">' + t.name + ' <span class="tag">' + t.lessons.length + ' lessons</span></div><div class="muted small">' + t.tagline + '</div></div></div>';
+    }).join('');
+}
+
+function viewTrack(tid) {
+  var t = findTrackDef(tid);
+  if (!t) return viewTracks();
+  app.innerHTML = '<div class="hero"><h1>' + t.name + '</h1><p class="muted">' + t.tagline + '</p></div>'
+    + '<div class="card"><strong>Study plan</strong><div class="spacer"></div><ul class="small">' + t.plan.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'
+    + (t.atlas ? '<button class="btn ghost small" data-nav="#/atlas/A/' + t.atlas + '">Area overview in the Atlas</button>' : '') + '</div>'
+    + benchPanel(t.bench)
+    + '<h3 style="margin:18px 4px 6px">Lessons</h3>'
+    + t.lessons.map(function (l, i) { return '<div class="card mod" data-nav="#/tracks/' + t.id + '/' + l.id + '"><div class="meta"><div class="t">' + (i + 1) + '. ' + l.title + '</div></div></div>'; }).join('')
+    + '<div class="spacer"></div><button class="btn ghost small" data-nav="#/tracks">Back to tracks</button>';
+}
+
+function viewTrackLesson(tid, lid) {
+  var t = findTrackDef(tid);
+  var idx = t ? t.lessons.findIndex(function (x) { return x.id === lid; }) : -1;
+  if (idx < 0) return viewTrack(tid);
+  var l = t.lessons[idx], next = t.lessons[idx + 1];
+  var journal = /prediction drill/.test(l.title) ? '<button class="btn" data-nav="#/journal">Open the Decision journal</button>' : '';
+  app.innerHTML = '<div class="card lesson"><h2>' + l.title + '</h2>' + l.body.map(block).join('')
+    + '<div class="spacer"></div><div class="row">' + journal
+    + (next ? '<button class="btn" data-nav="#/tracks/' + tid + '/' + next.id + '">Next: ' + next.title + '</button>' : '')
+    + '<button class="btn ghost small" data-nav="#/tracks/' + tid + '">Back to ' + t.name + '</button></div></div>';
+}
+
 /* ---- router ---- */
 function route() {
   var h = location.hash || '#/';
@@ -784,6 +844,11 @@ function route() {
     if (p[1] && p[2]) viewCaseLesson(p[1], p[2]);
     else if (p[1]) viewCase(p[1]);
     else viewCases();
+  }
+  else if (p[0] === 'tracks') {
+    if (p[1] && p[2]) viewTrackLesson(p[1], p[2]);
+    else if (p[1]) viewTrack(p[1]);
+    else viewTracks();
   }
   else if (p[0] === 'journal') viewJournal();
   else if (p[0] === 'search') viewSearch();

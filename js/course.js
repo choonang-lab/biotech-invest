@@ -713,7 +713,15 @@ window.GLOSSARY = [
   { t: 'Pump-and-dump', d: 'A scheme that hypes a stock (often via paid promotion) so insiders can sell into the inflated price before it collapses.' },
   { t: 'Fast Track', d: 'FDA designation that speeds development and review of drugs for serious conditions. Expedites process; not an approval.' },
   { t: 'Accelerated approval', d: 'FDA pathway allowing approval on a surrogate endpoint (e.g. a biomarker), with confirmatory trials required afterward.' },
-  { t: 'CMC / cGMP', d: 'Chemistry, Manufacturing & Controls and current Good Manufacturing Practice — how a drug is made at quality/scale. Manufacturing faults alone can trigger a CRL even when the science is fine.' }
+  { t: 'CMC / cGMP', d: 'Chemistry, Manufacturing & Controls and current Good Manufacturing Practice — how a drug is made at quality/scale. Manufacturing faults alone can trigger a CRL even when the science is fine.' },
+  { t: 'Placebo-adjusted effect', d: 'The drug arm\'s result minus the placebo arm\'s (e.g. 48% vs 29% = 19 points). The fairest single number for a readout — raw response rates mislead because placebo rates vary between trials.' },
+  { t: 'PASI', d: 'Psoriasis Area and Severity Index. PASI 75/90/100 = share of patients with a 75/90/100% improvement. Placebo barely moves it, so psoriasis trials give clean differences.' },
+  { t: 'EASI / IGA', d: 'Atopic dermatitis scores. EASI measures extent and severity (EASI-75 = 75% improvement); IGA 0/1 is a stricter physician rating of clear or almost clear skin.' },
+  { t: 'HiSCR', d: 'Hidradenitis Suppurativa Clinical Response. HiSCR50 = at least 50% fewer abscesses and inflammatory nodules, with no new abscesses or draining tunnels. Lenient and noisy, with high placebo rates; HiSCR75/90 are stricter.' },
+  { t: 'SALT', d: 'Severity of Alopecia Tool — the percentage of scalp without hair. SALT ≤20 (at most 20% bald) is the usual alopecia areata success threshold.' },
+  { t: '6MWD', d: 'Six-minute walk distance — how far a patient walks in six minutes. The standard functional endpoint in pulmonary arterial hypertension; gains of roughly 30 metres are usually seen as meaningful.' },
+  { t: 'PVR', d: 'Pulmonary vascular resistance — how hard the heart must push blood through the lungs, measured by right-heart catheter. A strong Phase 2 signal in PAH, but a surrogate, not an approval endpoint.' },
+  { t: 'Background therapy', d: 'The treatments trial patients keep taking alongside the study drug or placebo. More background therapy usually means smaller measured add-on effects — compare add-on trials with add-on trials.' }
 ];
 
 /* Rules of thumb — the course distilled. { g: group, r: rule, why: reason }. */
