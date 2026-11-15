@@ -83,6 +83,7 @@ function viewHome() {
     tile('Industry Atlas', 'Map the sector: areas, market size, players, MOA.', '#/atlas'),
     tile('Case studies', 'Real companies, studied for the judgment they teach.', '#/cases'),
     tile('Deep-dive tracks', 'Specialise: endpoints, placebo rates and benchmarks in one area.', '#/tracks'),
+    planTile(),
     tile('Review deck' + (reviewDeck().length ? ' — ' + reviewDeck().length + ' due' : ''), 'Spaced repetition of the quiz questions you missed.', '#/review'),
     tile('Final exam' + (state.exam ? ' — best ' + state.exam.bestPct + '%' : ''), 'A cumulative test drawn from every module.', '#/exam'),
     tile('Cash runway calculator', 'How many quarters until they must raise?', '#/tools/runway'),
@@ -96,6 +97,11 @@ function viewHome() {
     tile('Glossary', 'The terms you will meet constantly.', '#/glossary'),
     '</div>'
   ].join('');
+}
+function planTile() {
+  var st = planStatus();
+  if (!st) return tile('Learning plan', 'A 16-week plan through both tracks, with a progress tracker.', '#/plan');
+  return tile('Learning plan — week ' + st.week + ' · ' + st.pct + '%', st.label + ' · ' + st.done + ' of ' + st.total + ' items done.', '#/plan');
 }
 function tile(t, d, nav) {
   return '<div class="card mod" data-nav="' + nav + '"><div class="meta"><div class="t">' + t + '</div><div class="muted small">' + d + '</div></div></div>';
@@ -801,10 +807,11 @@ function viewTrack(tid) {
   if (!t) return viewTracks();
   app.innerHTML = '<div class="hero"><h1>' + t.name + '</h1><p class="muted">' + t.tagline + '</p></div>'
     + '<div class="card"><strong>Study plan</strong><div class="spacer"></div><ul class="small">' + t.plan.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'
-    + (t.atlas ? '<button class="btn ghost small" data-nav="#/atlas/A/' + t.atlas + '">Area overview in the Atlas</button>' : '') + '</div>'
+    + '<div class="row"><button class="btn small" data-nav="#/plan">Open the learning-plan tracker</button>'
+    + (t.atlas ? '<button class="btn ghost small" data-nav="#/atlas/A/' + t.atlas + '">Area overview in the Atlas</button>' : '') + '</div></div>'
     + benchPanel(t.bench)
     + '<h3 style="margin:18px 4px 6px">Lessons</h3>'
-    + t.lessons.map(function (l, i) { return '<div class="card mod" data-nav="#/tracks/' + t.id + '/' + l.id + '"><div class="meta"><div class="t">' + (i + 1) + '. ' + l.title + (l.kind ? ' <span class="tag">' + l.kind + '</span>' : '') + '</div></div></div>'; }).join('')
+    + t.lessons.map(function (l, i) { return '<div class="card mod" data-nav="#/tracks/' + t.id + '/' + l.id + '"><div class="meta"><div class="t">' + (planState().done['L:' + t.id + '/' + l.id] ? '<span class="tick">&#10003;</span> ' : '') + (i + 1) + '. ' + l.title + (l.kind ? ' <span class="tag">' + l.kind + '</span>' : '') + '</div></div></div>'; }).join('')
     + (t.reading ? '<h3 style="margin:18px 4px 6px">Reading list</h3><div class="card"><p class="small muted">' + t.reading.intro + '</p>' + t.reading.weeks.map(function (w) {
       return '<div class="check"><span><strong>' + w.week + '</strong><div class="muted small" style="margin-top:4px">' + w.task + '</div><ul class="small">' + w.papers.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></span></div>';
     }).join('') + '</div>' : '')
@@ -817,11 +824,202 @@ function viewTrackLesson(tid, lid) {
   if (idx < 0) return viewTrack(tid);
   var l = t.lessons[idx], next = t.lessons[idx + 1];
   var journal = /prediction drill/.test(l.title) ? '<button class="btn" data-nav="#/journal">Open the Decision journal</button>' : '';
+  var pkey = 'L:' + tid + '/' + lid, isDone = !!planState().done[pkey];
+  var mark = '<button class="btn' + (isDone ? ' ghost' : '') + '" id="mark_done">' + (isDone ? '&#10003; Done — undo' : 'Mark as done') + '</button>';
   app.innerHTML = '<div class="card lesson"><h2>' + l.title + '</h2>' + l.body.map(block).join('')
-    + '<div class="spacer"></div><div class="row">' + journal
+    + '<div class="spacer"></div><div class="row">' + mark + journal
     + (next ? '<button class="btn" data-nav="#/tracks/' + tid + '/' + next.id + '">Next: ' + next.title + '</button>' : '')
-    + '<button class="btn ghost small" data-nav="#/tracks/' + tid + '">Back to ' + t.name + '</button></div></div>';
+    + '<button class="btn ghost small" data-nav="#/tracks/' + tid + '">Back to ' + t.name + '</button>'
+    + (planState().start ? '<button class="btn ghost small" data-nav="#/plan">Learning plan</button>' : '') + '</div></div>';
+  document.getElementById('mark_done').onclick = function () { toggleDone(pkey, !isDone); viewTrackLesson(tid, lid); };
 }
+
+/* ---- Learning plan tracker (#/plan) ----
+   State (additive): state.plan = { start: 'YYYY-MM-DD', done: { itemKey: 'YYYY-MM-DD' } }.
+   Item keys come from TRACKS.schedule; predictions are counted from the journal. */
+var DAY = 86400000;
+function isoDay(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+function parseDay(s) { var a = s.split('-'); return new Date(+a[0], +a[1] - 1, +a[2]); }
+function todayIso() { return isoDay(new Date()); }
+function daysBetween(a, b) { return Math.round((parseDay(b) - parseDay(a)) / DAY); }
+function fmtDay(s) { return parseDay(s).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }); }
+
+function planState() {
+  state.plan = state.plan || {};
+  state.plan.done = state.plan.done || {};
+  return state.plan;
+}
+function planItem(key) {
+  var kind = key[0], rest = key.slice(2);
+  if (kind === 'L') {
+    var a = rest.split('/'), t = findTrackDef(a[0]);
+    var idx = t ? t.lessons.findIndex(function (l) { return l.id === a[1]; }) : -1;
+    if (idx < 0) return null;
+    return { key: key, kind: 'Lesson', label: (t.id === 'immunology' ? 'Immunology' : 'Cardiopulmonary') + ' ' + (idx + 1) + ' · ' + t.lessons[idx].title, nav: '#/tracks/' + t.id + '/' + a[1] };
+  }
+  if (kind === 'P') {
+    var b = rest.split('/'), tr = findTrackDef(b[0]), wp = b[1].split('.');
+    var w = tr && tr.reading && tr.reading.weeks[+wp[0]];
+    if (!w || !w.papers[+wp[1]]) return null;
+    return { key: key, kind: 'Paper', label: w.papers[+wp[1]], nav: '#/tracks/' + tr.id };
+  }
+  var bar = rest.indexOf('|');
+  return { key: key, kind: 'Task', label: rest.slice(bar + 1), nav: key === 'T:first-prediction' ? '#/journal' : null };
+}
+function planWeeks() { return TRACKS.schedule.plan; }
+function planTotal() { return planWeeks().reduce(function (n, w) { return n + w.items.length; }, 0); }
+function planDoneCount() {
+  var d = planState().done, all = {};
+  planWeeks().forEach(function (w) { w.items.forEach(function (k) { all[k] = 1; }); });
+  return Object.keys(d).filter(function (k) { return all[k]; }).length;
+}
+/* expected items by a given day offset from start: whole earlier weeks + pro-rata of the current week */
+function planExpectedAt(dayOff) {
+  var weeks = planWeeks(), n = 0;
+  for (var i = 0; i < weeks.length; i++) {
+    var wStart = i * 7, wEnd = wStart + 7;
+    if (dayOff >= wEnd) n += weeks[i].items.length;
+    else if (dayOff > wStart) n += weeks[i].items.length * (dayOff - wStart) / 7;
+  }
+  return n;
+}
+function planStatus() {
+  var p = planState();
+  if (!p.start) return null;
+  var off = Math.max(0, daysBetween(p.start, todayIso()) + 1); // count today as in progress
+  var total = planTotal(), done = planDoneCount(), expected = Math.min(total, planExpectedAt(off));
+  var gap = Math.round(done - expected);
+  var week = Math.min(planWeeks().length, Math.floor(Math.max(0, off - 1) / 7) + 1);
+  var label, cls;
+  if (done >= total) { label = 'Plan complete'; cls = 'good'; }
+  else if (gap >= 1) { label = 'Ahead by ' + gap + ' item' + (gap === 1 ? '' : 's'); cls = 'good'; }
+  else if (gap >= -1) { label = 'On track'; cls = 'good'; }
+  else { label = 'Behind by ' + (-gap) + ' items'; cls = (gap <= -6 ? 'bad' : 'warn'); }
+  return { off: off, week: week, total: total, done: done, expected: expected, gap: gap, label: label, cls: cls, pct: Math.round(done / total * 100) };
+}
+function planStreak() {
+  var d = planState().done, days = {};
+  Object.keys(d).forEach(function (k) { days[d[k]] = 1; });
+  var t = new Date(), n = 0;
+  if (!days[isoDay(t)]) t = new Date(t.getTime() - DAY); // a streak stays alive until the end of today
+  while (days[isoDay(t)]) { n++; t = new Date(t.getTime() - DAY); }
+  return n;
+}
+function planPredictions() {
+  var p = planState();
+  return (state.journal || []).filter(function (e) { return p.start && e.when && e.when >= p.start; }).length;
+}
+function toggleDone(key, on) {
+  var p = planState();
+  if (on) p.done[key] = todayIso(); else delete p.done[key];
+  save();
+}
+
+function burnupSvg(st) {
+  var p = planState(), weeks = planWeeks(), W = Math.round(Math.min(640, Math.max(300, (app.clientWidth || 640) - 40))), H = W < 480 ? 220 : 230, L = 30, R = W < 480 ? 50 : 64, T = 14, B = 30;
+  var total = st.total, nW = weeks.length;
+  function x(day) { return L + (W - L - R) * day / (nW * 7); }
+  function y(v) { return T + (H - T - B) * (1 - v / total); }
+  var grid = '', ticks = '';
+  [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+    var v = Math.round(total * f);
+    grid += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '" class="bu-grid"/>';
+    ticks += '<text x="' + (L - 6) + '" y="' + (y(v) + 4) + '" class="bu-tick" text-anchor="end">' + v + '</text>';
+  });
+  for (var w = 0; w <= nW; w += 4) ticks += '<text x="' + x(w * 7) + '" y="' + (H - 10) + '" class="bu-tick" text-anchor="middle">' + (w === 0 ? 'Start' : 'Wk ' + w) + '</text>';
+  // plan: cumulative at each week boundary (straight segments = steady pro-rata pace)
+  var planPts = [], cum = 0;
+  planPts.push(x(0) + ',' + y(0));
+  weeks.forEach(function (wk, i) { cum += wk.items.length; planPts.push(x((i + 1) * 7) + ',' + y(cum)); });
+  // actual: cumulative done by day, up to today
+  var byDay = {};
+  Object.keys(p.done).forEach(function (k) { var o = daysBetween(p.start, p.done[k]); o = Math.max(0, o) + 1; byDay[o] = (byDay[o] || 0) + 1; });
+  var lastDay = Math.min(st.off, nW * 7), a = 0, actPts = [x(0) + ',' + y(0)];
+  for (var dd = 1; dd <= lastDay; dd++) { if (byDay[dd]) { actPts.push(x(dd - 1) + ',' + y(a)); a += byDay[dd]; } actPts.push(x(dd) + ',' + y(a)); }
+  var ax = x(lastDay), ay = y(a);
+  // hover targets per week (native tooltip)
+  var hits = '';
+  weeks.forEach(function (wk, i) {
+    var planned = planExpectedAt((i + 1) * 7), doneBy = 0;
+    Object.keys(byDay).forEach(function (k) { if (+k <= (i + 1) * 7) doneBy += byDay[k]; });
+    var future = (i * 7) >= st.off;
+    hits += '<rect x="' + x(i * 7) + '" y="' + T + '" width="' + (x(7) - x(0)) + '" height="' + (H - T - B) + '" class="bu-hit"><title>Week ' + (i + 1) + ' — ' + wk.title + '\nPlan: ' + Math.round(planned) + ' items by end of week' + (future ? '' : '\nYou: ' + doneBy + ' done by end of week') + '</title></rect>';
+  });
+  var todayX = x(Math.min(st.off, nW * 7));
+  return '<svg viewBox="0 0 ' + W + ' ' + H + '" class="burnup" role="img" aria-label="Items completed versus plan: ' + st.done + ' done, ' + Math.round(st.expected) + ' expected by today, ' + total + ' in total">'
+    + grid
+    + '<line x1="' + todayX + '" x2="' + todayX + '" y1="' + T + '" y2="' + (H - B) + '" class="bu-today"/>'
+    + '<text x="' + todayX + '" y="' + (T - 3) + '" class="bu-tick" text-anchor="middle">Today</text>'
+    + '<polyline points="' + planPts.join(' ') + '" class="bu-plan"/>'
+    + '<polyline points="' + actPts.join(' ') + '" class="bu-act"/>'
+    + '<circle cx="' + ax + '" cy="' + ay + '" r="5" class="bu-dot"/>'
+    + '<text x="' + (W - R + 6) + '" y="' + (y(total) + 4) + '" class="bu-lab">Plan</text>'
+    + '<text x="' + (ax + 9) + '" y="' + (ay + 4) + '" class="bu-lab bu-lab-act">You ' + a + '</text>'
+    + ticks + hits + '</svg>'
+    + '<div class="bu-legend small muted"><span class="sw sw-act"></span>Completed &nbsp; <span class="sw sw-plan"></span>Planned pace &nbsp; <span class="sw sw-today"></span>Today</div>';
+}
+
+function viewPlan() {
+  var p = planState();
+  if (!p.start) {
+    app.innerHTML = '<div class="hero"><h1>Learning plan</h1><p class="muted">A 16-week plan through both deep-dive tracks: 28 lessons, 33 original papers and a handful of tasks — about 2–3 hours a week. Tick things off as you go and the tracker shows you against the plan.</p></div>'
+      + '<div class="card"><label class="field"><span>Start date</span><input id="pl_start" type="date" value="' + todayIso() + '"></label>'
+      + '<button class="btn" id="pl_go">Start my plan</button>'
+      + '<p class="small muted">Progress lives only in this browser, like your journal. You can change the start date later.</p></div>';
+    document.getElementById('pl_go').onclick = function () {
+      var v = document.getElementById('pl_start').value || todayIso();
+      planState().start = v; save(); route();
+    };
+    return;
+  }
+  var st = planStatus(), weeks = planWeeks(), preds = planPredictions();
+  var predTarget = Math.max(1, Math.ceil(st.off / TRACKS.schedule.predictionEvery));
+  var cur = weeks[st.week - 1], curDone = cur.items.filter(function (k) { return p.done[k]; }).length;
+  var notStarted = daysBetween(p.start, todayIso()) < 0;
+  var catchH = Math.max(0.5, Math.round(-st.gap * 25 / 60 * 2) / 2);
+  var behindMsg = st.gap <= -2 ? '<p class="small">To catch up: ' + (-st.gap) + ' items — roughly ' + catchH + ' hour' + (catchH === 1 ? '' : 's') + ' at about 25 minutes an item.</p>' : '';
+  var html = '<div class="hero"><h1>Learning plan</h1><p class="muted">' + (notStarted ? 'Starts ' + fmtDay(p.start) : 'Week ' + st.week + ' of ' + weeks.length + ' · ' + cur.title) + '</p>'
+    + '<div class="spacer"></div><span class="status-pill ' + st.cls + '">' + st.label + '</span></div>'
+    + '<div class="card"><div class="row spread"><strong>You vs the plan</strong><span class="muted small">' + st.done + ' of ' + st.total + ' items</span></div>'
+    + '<div class="meter"><div class="meter-fill" style="width:' + st.pct + '%"></div><div class="meter-mark" style="left:' + Math.min(100, st.expected / st.total * 100) + '%" title="Where the plan expects you today"></div></div>'
+    + '<div class="row spread small muted"><span>Done ' + st.pct + '%</span><span>Plan expects ' + Math.round(st.expected / st.total * 100) + '% by today</span></div>'
+    + behindMsg
+    + '<div class="spacer"></div>' + burnupSvg(st) + '</div>'
+    + '<div class="stat-grid">'
+    + statTile('This week', curDone + ' / ' + cur.items.length, 'items in week ' + st.week)
+    + statTile('Streak', planStreak() + ' day' + (planStreak() === 1 ? '' : 's'), 'in a row with something done')
+    + statTile('Predictions', preds + ' / ' + predTarget, 'journal entries · aim one a fortnight')
+    + statTile('Overall', st.pct + '%', st.total - st.done + ' items to go')
+    + '</div>'
+    + '<h3 style="margin:18px 4px 6px">Week by week</h3>';
+  html += weeks.map(function (wk, i) {
+    var n = i + 1, ws = new Date(parseDay(p.start).getTime() + i * 7 * DAY), we = new Date(ws.getTime() + 6 * DAY);
+    var d = wk.items.filter(function (k) { return p.done[k]; }).length, all = wk.items.length;
+    var isCur = n === st.week && !notStarted, past = !notStarted && n < st.week, late = past && d < all;
+    var badge = d === all ? '<span class="tag good-tag">Done</span>' : (late ? '<span class="tag med">' + (all - d) + ' overdue</span>' : (isCur ? '<span class="tag">This week</span>' : ''));
+    var items = wk.items.map(function (k) {
+      var it = planItem(k); if (!it) return '';
+      var on = !!p.done[k];
+      return '<label class="check plan-item' + (on ? ' is-done' : '') + '"><input type="checkbox" data-plan="' + k + '"' + (on ? ' checked' : '') + '>'
+        + '<span><span class="tag">' + it.kind + '</span> ' + (it.nav ? '<a class="inline" href="' + it.nav + '">' + it.label + '</a>' : it.label)
+        + (on ? '<div class="muted small">done ' + fmtDay(p.done[k]) + '</div>' : '') + '</span></label>';
+    }).join('');
+    return '<details class="card week' + (isCur ? ' current' : '') + '"' + (isCur || late ? ' open' : '') + '><summary><div class="row spread"><strong>Week ' + n + ' · ' + wk.title + '</strong>' + badge + '</div>'
+      + '<div class="muted small">' + fmtDay(isoDay(ws)) + ' – ' + fmtDay(isoDay(we)) + ' · ' + d + ' of ' + all + ' done</div>'
+      + '<div class="meter thin"><div class="meter-fill" style="width:' + Math.round(d / all * 100) + '%"></div></div></summary>' + items + '</details>';
+  }).join('');
+  html += '<div class="card"><div class="row spread"><strong>Settings</strong></div><label class="field"><span>Plan start date</span><input id="pl_start" type="date" value="' + p.start + '"></label>'
+    + '<div class="row"><button class="btn ghost small" id="pl_save">Change start date</button><button class="btn ghost small" id="pl_reset">Reset progress</button></div>'
+    + '<p class="small muted">Lessons can also be ticked with the "Mark as done" button at the end of each lesson. Progress is stored only in this browser.</p></div>';
+  app.innerHTML = html;
+  app.querySelectorAll('[data-plan]').forEach(function (cb) {
+    cb.onchange = function () { toggleDone(this.getAttribute('data-plan'), this.checked); var y = window.scrollY; viewPlan(); window.scrollTo(0, y); };
+  });
+  app.querySelectorAll('.plan-item a').forEach(function (a) { a.onclick = function (e) { e.stopPropagation(); }; });
+  document.getElementById('pl_save').onclick = function () { var v = document.getElementById('pl_start').value; if (v) { planState().start = v; save(); viewPlan(); } };
+  document.getElementById('pl_reset').onclick = function () { if (confirm('Clear all ticked items? Your start date and journal are kept.')) { planState().done = {}; save(); viewPlan(); } };
+}
+function statTile(t, v, sub) { return '<div class="card stat"><div class="muted small">' + t + '</div><div class="stat-v">' + v + '</div><div class="muted small">' + sub + '</div></div>'; }
 
 /* ---- router ---- */
 function route() {
@@ -855,6 +1053,7 @@ function route() {
     else if (p[1]) viewTrack(p[1]);
     else viewTracks();
   }
+  else if (p[0] === 'plan') viewPlan();
   else if (p[0] === 'journal') viewJournal();
   else if (p[0] === 'search') viewSearch();
   else if (p[0] === 'capstone') viewCapstone();

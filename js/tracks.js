@@ -11,6 +11,32 @@ window.TRACKS = {
   updated: '2026-Q4',
   intro: 'The Atlas tells you what an area is. A track trains you to judge a readout in it — the endpoints, the placebo rates, the benchmark results every new drug is measured against, and the failures that taught the field its rules. Specialists beat generalists in biotech because biology does not transfer between areas; pick a track and go deep.',
   disclaimer: 'Educational only. Trial figures are rounded, dated snapshots of published pivotal results, shown for calibration — not live data, and not a recommendation to buy, sell or hold any security. Benchmark rows were checked against the published trials in Nov 2026; any row marked "to verify" has not been.',
+  /* 16-week combined learning plan (the #/plan tracker). Items:
+     'L:<track>/<lessonId>'  a track lesson
+     'P:<track>/<week>.<paper>'  a paper from that track's reading list (0-based)
+     'T:<id>|<label>'  a task. Predictions are counted from the Decision journal. */
+  schedule: {
+    weeks: 16,
+    predictionEvery: 14,
+    plan: [
+      { title: 'Primers and the HS worked examples', items: ['L:immunology/ip1', 'L:immunology/ip2', 'L:immunology/iw1', 'L:immunology/iw2', 'L:immunology/iw3', 'L:immunology/iw5', 'T:first-prediction|Log your first dated prediction in the Decision journal'] },
+      { title: 'Foundations and psoriasis', items: ['L:immunology/ii1', 'L:immunology/ii2', 'L:immunology/ii3', 'P:immunology/0.0', 'P:immunology/0.1', 'P:immunology/0.2'] },
+      { title: 'Read-across and the HS papers', items: ['L:immunology/ii4', 'L:immunology/iw4', 'P:immunology/1.0', 'P:immunology/1.1'] },
+      { title: 'BE HEARD and your own HS table', items: ['P:immunology/1.2', 'T:hs-table|Build your own table of the six HS trials: placebo rate, drug rate, HiSCR75, dropouts'] },
+      { title: 'The UC race and eczema papers', items: ['L:immunology/ix1', 'P:immunology/2.0', 'P:immunology/2.1', 'P:immunology/2.2'] },
+      { title: 'Eczema and alopecia after Dupixent', items: ['L:immunology/ix2', 'P:immunology/2.3', 'P:immunology/2.4', 'P:immunology/3.3'] },
+      { title: 'Post-mortems and the UC contenders', items: ['L:immunology/ii5', 'P:immunology/3.0', 'P:immunology/3.1', 'P:immunology/3.2', 'P:immunology/4.0'] },
+      { title: 'The prediction drill and the failure papers', items: ['L:immunology/ii6', 'P:immunology/4.1', 'P:immunology/4.2', 'P:immunology/4.3', 'P:immunology/4.4'] },
+      { title: 'Cardiopulmonary primers', items: ['L:cardiopulmonary/cpp1', 'L:cardiopulmonary/cp1', 'L:cardiopulmonary/cpx1'] },
+      { title: 'Endpoints and the monotherapy era', items: ['L:cardiopulmonary/cp2', 'L:cardiopulmonary/cp3', 'P:cardiopulmonary/0.0', 'P:cardiopulmonary/0.1', 'P:cardiopulmonary/0.2'] },
+      { title: 'Sotatercept and the add-on trials', items: ['L:cardiopulmonary/cpw1', 'P:cardiopulmonary/1.0', 'P:cardiopulmonary/1.1', 'P:cardiopulmonary/1.2', 'P:cardiopulmonary/1.3'] },
+      { title: 'Inhaled treprostinil, patents and exclusivity', items: ['L:cardiopulmonary/cpw2', 'L:cardiopulmonary/cpw3', 'P:cardiopulmonary/1.4', 'P:cardiopulmonary/1.5', 'P:cardiopulmonary/1.6'] },
+      { title: 'Post-mortems and TOPCAT', items: ['L:cardiopulmonary/cp4', 'L:cardiopulmonary/cpw4', 'P:cardiopulmonary/2.0', 'P:cardiopulmonary/2.1'] },
+      { title: 'The heart-failure wins', items: ['P:cardiopulmonary/2.2', 'P:cardiopulmonary/2.3', 'T:redo-exercises|Re-do every exercise you got wrong in both tracks'] },
+      { title: 'Hypertrophic cardiomyopathy', items: ['L:cardiopulmonary/cp5', 'P:cardiopulmonary/3.0', 'P:cardiopulmonary/3.1', 'P:cardiopulmonary/3.2'] },
+      { title: 'Power, the drill and your one-page summary', items: ['L:cardiopulmonary/cpw5', 'L:cardiopulmonary/cp6', 'T:summary|Write a one-page summary per track: the benchmark ranges, placebo rates and rules you would apply to the next readout'] }
+    ]
+  },
   tracks: [
     {
       id: 'immunology',
