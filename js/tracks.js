@@ -1,9 +1,11 @@
 /* Deep-dive tracks — practitioner-level specialisation in one therapeutic
    area (educational, NOT advice). The Atlas maps an area; a track trains you
    to judge a readout in it. Two layers, like the Atlas and Cases:
-   - evergreen `lessons` (block schema: p / h / ul / callout)
+   - evergreen `lessons` (block schema: p / h / ul / callout / q+a exercise;
+     optional `kind` tag). Worked examples quote fixed, published trial
+     results (verified Nov 2026) — historical facts, not volatile data
    - a VOLATILE dated `bench` table of pivotal-trial results (each row has
-     asOf + pending; pending = from memory, not yet source-verified).
+     asOf + pending; pending = not yet source-verified).
    Lessons reference the table qualitatively; refresh only `bench` rows. */
 window.TRACKS = {
   updated: '2026-Q4',
@@ -16,12 +18,42 @@ window.TRACKS = {
       atlas: 'immunology',
       tagline: 'Skin, gut, joints and kidney — one cytokine map, a dozen endpoints, and placebo as the hidden variable.',
       plan: [
-        'Weeks 1–2 · Endpoints: learn what PASI, EASI/IGA, HiSCR, Mayo, SALT and ACR measure, and how each can flatter a drug (lessons 2–3)',
-        'Weeks 3–4 · Benchmarks: memorise the table below until you can quote the placebo-adjusted effect of the standard-of-care drug in each disease',
-        'Weeks 5–6 · Read the original pivotal papers (including the supplement) for one IL-17, one IL-23, one IL-4/13 and one JAK drug',
-        'Weeks 7–8 · Post-mortems: work through lesson 5 and write, for each failure, what in the design or mechanism could have warned you',
-        'Ongoing · Before every readout you follow, log a dated prediction in the Decision journal; score it afterwards (lesson 6)'
+        'Time: the lessons and exercises take about 3 hours in all. The 8 weeks is the reading list at the bottom of this page — about 2–3 hours a week with the original papers',
+        'Weeks 1–2 · Lessons 1–3 (endpoints and placebo), then read the psoriasis papers on the reading list',
+        'Weeks 3–4 · Worked examples 4–6 (PIONEER, SUNSHINE/SUNRISE, BE HEARD), then read all three HS programmes and build your own table of placebo rates, HiSCR75 and dropouts',
+        'Weeks 5–6 · Lessons 7–8 (read-across, which number is the primary), then the atopic dermatitis and alopecia papers',
+        'Weeks 7–8 · Lessons 9–10 (post-mortems, power), then the UC papers and the two failure papers',
+        'Ongoing · Lesson 11: log a dated prediction before every readout you follow, and score it afterwards'
       ],
+      reading: {
+        intro: 'The original papers behind every number in this track. Read the abstract first, then the results tables and the supplement — the supplement is where dropouts, subgroups and endpoint definitions live. Search the citation on PubMed to find each one.',
+        weeks: [
+          { week: 'Weeks 1–2 · Psoriasis', task: 'Notice that each trial has two co-primary endpoints (PASI plus a physician global score), and how small the placebo responses are.', papers: [
+            'ERASURE and FIXTURE (secukinumab) — Langley et al., NEJM 2014',
+            'UltIMMa-1 and UltIMMa-2 (risankizumab) — Gordon et al., Lancet 2018',
+            'BE READY (bimekizumab) — Gordon et al., Lancet 2021;397:475'
+          ] },
+          { week: 'Weeks 3–4 · Hidradenitis suppurativa', task: 'Build your own table: placebo rate, drug rate, HiSCR75, discontinuations, for each of the six trials. Then explain the spread.', papers: [
+            'PIONEER I and II (adalimumab) — Kimball et al., NEJM 2016;375:422',
+            'SUNSHINE and SUNRISE (secukinumab) — Kimball et al., Lancet 2023;401:747',
+            'BE HEARD I and II (bimekizumab) — Kimball et al., Lancet 2024;403:2504'
+          ] },
+          { week: 'Weeks 5–6 · Atopic dermatitis and alopecia', task: 'For each programme, find the primary endpoint and compare twin-trial results. Note how long alopecia trials must run.', papers: [
+            'SOLO 1 and SOLO 2 (dupilumab) — Simpson et al., NEJM 2016',
+            'ADvocate 1 and 2 (lebrikizumab) — Silverberg et al., NEJM 2023;388:1080',
+            'Measure Up 1 and 2 (upadacitinib) — Guttman-Yassky et al., Lancet 2021;397:2151',
+            'BRAVE-AA1 and AA2 (baricitinib) — King et al., NEJM 2022;386:1687',
+            'ALLEGRO-2b/3 (ritlecitinib) — King et al., Lancet 2023;401:1518'
+          ] },
+          { week: 'Weeks 7–8 · Ulcerative colitis and the failures', task: 'Compare how each UC trial defines remission. Then read the two failures and write one sentence each on what could have warned you.', papers: [
+            'GEMINI 1 (vedolizumab) — Feagan et al., NEJM 2013',
+            'U-ACHIEVE and U-ACCOMPLISH (upadacitinib) — Danese et al., Lancet 2022',
+            'INSPIRE and COMMAND (risankizumab) — Louis et al., JAMA 2024;332:881',
+            'Secukinumab in Crohn\'s disease — Hueber et al., Gut 2012',
+            'ORAL Surveillance (tofacitinib safety) — Ytterberg et al., NEJM 2022'
+          ] }
+        ]
+      },
       bench: {
         asOf: '2026-Q4',
         note: 'Source-checked Nov 2026 against the published trials. Drug arm vs placebo at the primary timepoint, rounded. Compare placebo-adjusted differences — never raw responder rates across trials.',
@@ -64,7 +96,7 @@ window.TRACKS = {
               'Crowding — many companies chase the same validated pathway, and the fourth drug in a class rarely earns what the first did',
               'Placebo — response rates in some endpoints are high and variable enough to sink a genuinely active drug (lesson 3)',
               'Class safety — a safety finding for one drug can rewrite the label of every drug in its class',
-              'Read-across that does not hold — a pathway that matters in one tissue can be irrelevant, or harmful, in another (lessons 4–5)'
+              'Read-across that does not hold — a pathway that matters in one tissue can be irrelevant, or harmful, in another (lessons 7 and 9)'
             ] },
             { callout: 'In I&I the question is rarely "does the drug do anything?" It is "is it clearly better, safer or more convenient than what doctors already use, by enough to change a prescription?" Train yourself to ask the second question first.', kind: '' }
           ]
@@ -90,6 +122,7 @@ window.TRACKS = {
               'A non-responder imputation choice, or how dropouts are counted, can move the headline by several points',
               'A responder rate and a mean change can tell different stories — a few big responders can carry the mean'
             ] },
+            { q: 'A company headlines "PASI 75 in 80% of patients" for a new psoriasis drug. Why might that be less impressive than it sounds?', a: 'PASI 75 is the lenient threshold — modern IL-17 and IL-23 drugs are judged on PASI 90 and PASI 100, where the best drugs reach roughly three-quarters to nine-tenths of patients (see the table). A drug that leads with PASI 75 may be choosing the number that hides a gap at the stricter thresholds. Ask for PASI 90/100 and the physician global score, which is usually the co-primary.' },
             { callout: 'Before reading any I&I result, say out loud: which score, which threshold, at which week, and how are dropouts counted? If the press release does not tell you, that omission is information.', kind: 'warn' }
           ]
         },
@@ -114,7 +147,86 @@ window.TRACKS = {
               'When a competitor reports, read its placebo arm as carefully as its drug arm. A high placebo in a competitor\'s trial is a warning for every trial in that disease, including the one you own',
               'Ask whether the trial is powered for the effect it is likely to see after a realistic placebo rate, not the effect in the company\'s slide deck'
             ] },
+            { q: 'Your company\'s HS trial reads out next quarter. A competitor\'s HS trial just reported with a placebo HiSCR50 rate of 40% — above the 26–34% range in the table. Its stock rose because its drug arm was also high. What does this mean for your company?', a: 'It is a warning, not good news. A 40% placebo rate suggests recent HS trials (sites, regions, patient mix) may be running high placebo responses. If your company\'s trial sees something similar, its drug needs a higher absolute response to show the same difference — and it was probably powered assuming a lower placebo. Re-check the power assumptions (see lesson 10, on power) before the readout, not after.' },
             { callout: 'A competitor\'s positive readout is not automatically good news for your company. If it came with a high placebo rate, the bar your drug must clear may just have gone up.', kind: 'bad' }
+          ]
+        },
+        {
+          id: 'iw1',
+          kind: 'Worked example',
+          title: 'PIONEER I and II — same drug, two answers',
+          body: [
+            { p: 'Humira (adalimumab) won approval in hidradenitis suppurativa on two identical Phase 3 trials, PIONEER I and PIONEER II (Kimball, NEJM 2016). Same drug, same dose (40 mg weekly), same endpoint (HiSCR at week 12), same design. Here is what they found:' },
+            { ul: [
+              '<strong>PIONEER I</strong>: 41.8% on Humira vs 26.0% on placebo — a difference of about 16 points',
+              '<strong>PIONEER II</strong>: 58.9% on Humira vs 27.6% on placebo — a difference of about 31 points'
+            ] },
+            { h: 'What to notice' },
+            { ul: [
+              'The placebo arms agree closely (26% and 28%). The drug arms differ by 17 points. Same drug, two trials, a near-doubling of the effect',
+              'Neither number is "the" effect of Humira in HS. The honest benchmark is a range — roughly 16 to 31 points — not a single figure',
+              'If PIONEER I had been the only trial, the drug would have looked modest. If PIONEER II had been the only one, it would have looked excellent'
+            ] },
+            { h: 'Why it matters for investing' },
+            { p: 'Every single readout is one draw from a distribution. When a new drug reports one trial, you are seeing one draw, and twin trials of the same drug can land far apart. This is why regulators usually want two trials, and why you should hold a single Phase 2 result loosely — in either direction.' },
+            { q: 'A new HS drug reports one Phase 3 trial with a HiSCR50 difference of 16 points over placebo. A commentator calls it "clearly worse than Humira". Is that fair?', a: 'No. 16 points is exactly what Humira itself delivered in PIONEER I. One trial cannot place a drug within the 16–31-point range Humira spans. To compare, you would want the second trial, the stricter thresholds (HiSCR75/90), consistency across subgroups, and safety — and even then cross-trial comparison is weak evidence.' },
+            { callout: 'Benchmarks are ranges, not points. Before you call a result "better" or "worse" than the standard of care, check how far apart the standard of care\'s own twin trials landed.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'iw2',
+          kind: 'Worked example',
+          title: 'SUNSHINE and SUNRISE — reading dose arms and placebo drift',
+          body: [
+            { p: 'Cosentyx (secukinumab) was tested in HS in two twin Phase 3 trials, SUNSHINE and SUNRISE (Kimball, Lancet 2023). Each compared two dosing schedules — every 2 weeks (q2w) and every 4 weeks (q4w) — against placebo, on HiSCR at week 16.' },
+            { ul: [
+              '<strong>SUNSHINE</strong>: q2w 45.0% vs placebo 33.7% (significant); q4w 41.8% vs 33.7% (<strong>not</strong> significant)',
+              '<strong>SUNRISE</strong>: q2w 42.3% vs placebo 31.2% (significant); q4w 46.1% vs 31.2% (significant)'
+            ] },
+            { h: 'Lesson 1 · Dose arms that disagree are usually noise' },
+            { p: 'In SUNRISE the less frequent dose did better than the more frequent one; in SUNSHINE it failed. The same drug at a lower exposure cannot really be both better and worse. Read this as noise of a few points around a modest true effect — not as evidence that less frequent dosing works better. When dose arms flip order between twin trials, pool them in your head and look for the average.' },
+            { h: 'Lesson 2 · Placebo drift' },
+            { p: 'Placebo here ran at 31–34%, higher than PIONEER\'s 26–28% seven years earlier. Across HS trials, placebo has tended to sit higher in recent programmes. That shrinks differences: Cosentyx\'s q2w effect was about 11 points.' },
+            { h: 'Lesson 3 · Small differences can still be approvable — and commercial' },
+            { p: 'An 11-point difference looks small next to Humira\'s 16–31. Yet Cosentyx was approved for HS and became a real option, because it was the first IL-17 drug in a disease with few choices, and doctors already knew it from psoriasis. The commercial question is never only "how big is the effect?" but "how big compared with what doctors have today?"' },
+            { q: 'Using only the numbers above, estimate the placebo-adjusted effect of Cosentyx q2w in HS across both trials.', a: 'SUNSHINE: 45.0 − 33.7 = 11.3 points. SUNRISE: 42.3 − 31.2 = 11.1 points. About 11 points, very consistent across the two trials — which is reassuring precisely because the q4w arms were not.' },
+            { callout: 'Consistency between twin trials is worth as much as the size of the effect. Two 11-point results tell you more than one 20-point result and one failure.', kind: '' }
+          ]
+        },
+        {
+          id: 'iw3',
+          kind: 'Worked example',
+          title: 'BE HEARD — reading a readout end to end',
+          body: [
+            { p: 'Bimzelx (bimekizumab), which blocks both IL-17A and IL-17F, read out two HS Phase 3 trials, BE HEARD I and II (Kimball, Lancet 2024). Walk through it the way you would on readout day.' },
+            { h: 'Step 1 · Set the bar before you look' },
+            { ul: [
+              'Humira (TNF): 16–31 points over placebo (PIONEER)',
+              'Cosentyx (IL-17A): about 11 points (SUNSHINE/SUNRISE)',
+              'Expected placebo in a modern HS trial: around 30%, give or take'
+            ] },
+            { h: 'Step 2 · Check the design' },
+            { p: 'Most patients got the drug: BE HEARD I compared 289 patients on bimekizumab every 2 weeks with only 72 on placebo. A small placebo arm makes the placebo rate itself uncertain — with 72 patients, a 29% placebo rate has a 95% margin of roughly ±10 points. Keep that in mind when you compare placebo rates across trials.' },
+            { h: 'Step 3 · The results' },
+            { ul: [
+              '<strong>BE HEARD I</strong>: 48% vs 29% on HiSCR50 at week 16 (odds ratio 2.23, p = 0.006) — about 19 points',
+              '<strong>BE HEARD II</strong>: 52% vs 32% (odds ratio 2.29) — about 20 points. The every-4-weeks arm was also significant here (54% vs 32%)'
+            ] },
+            { h: 'Step 4 · Interpret' },
+            { ul: [
+              'About 19–20 points against placebo rates of 29–32% — similar placebo rates to SUNSHINE/SUNRISE (31–34%), which makes the comparison with Cosentyx\'s ~11 points less unfair than most cross-trial comparisons',
+              'Consistent across the twin trials, unlike the Cosentyx dose arms',
+              'Whether the extra benefit comes from blocking IL-17F or simply from blocking IL-17A more potently is still debated — and that debate decides how much credit other IL-17 drugs deserve'
+            ] },
+            { h: 'Step 5 · What you would still check' },
+            { ul: [
+              'Stricter thresholds (HiSCR75, HiSCR90) — they separate drugs better than HiSCR50',
+              'Durability to week 48, and what happened to placebo patients who switched to drug',
+              'Safety: fungal (candida) infections are a known IL-17 class effect, and blocking IL-17F as well may raise them'
+            ] },
+            { q: 'BE HEARD I had 72 patients on placebo, of whom 29% responded. Roughly what range could the "true" placebo rate plausibly lie in? (Hint: standard error ≈ √(p × (1 − p) / n).)', a: '√(0.29 × 0.71 / 72) ≈ 0.053, so about 5.3 points. A 95% range is about ±2 standard errors: roughly 19% to 40%. So the observed placebo rate is consistent with the full range seen across HS trials — which is why you compare differences, and why small placebo arms make single-trial comparisons fragile.' },
+            { q: 'For the reading list: open the BE HEARD paper and find the HiSCR75 results. Is the placebo-adjusted gap on HiSCR75 larger or smaller than on HiSCR50, and why might that be?', a: 'Check the paper for the figures. The pattern to look for: placebo patients rarely reach the stricter threshold, so placebo rates fall faster than drug-arm rates as the bar rises. A drug with a real effect often shows a cleaner separation at HiSCR75 than at HiSCR50 — which is why newer trials report it, and why it is the better way to compare drugs.' },
+            { callout: 'Readout-day order: bar first, design second, numbers third, interpretation last. Reading the numbers before setting the bar is how you end up anchored on the company\'s framing.', kind: 'warn' }
           ]
         },
         {
@@ -131,12 +243,43 @@ window.TRACKS = {
             ] },
             { h: 'Read-across tends to fail when' },
             { ul: [
-              'The pathway does different jobs in different tissues — in the gut, IL-17 helps protect the gut lining, so blocking it can make bowel inflammation worse (see lesson 5)',
+              'The pathway does different jobs in different tissues — in the gut, IL-17 helps protect the gut lining, so blocking it can make bowel inflammation worse (see lesson 9)',
               'The argument rests on one small study, or on a drug a big company quietly discontinued',
               'It assumes one part of a pathway "does not matter" based on data from a different disease',
               'A molecule\'s size, half-life or tissue penetration differs from the drug it is being compared with'
             ] },
+            { q: 'An investor argues: "IL-23 drugs work in both psoriasis and Crohn\'s disease, so an IL-17 drug that works in psoriasis should work in Crohn\'s too." What is wrong with the argument?', a: 'It treats psoriasis success as proof the whole pathway works everywhere. IL-23 and IL-17 sit on the same axis, but they do different jobs in different tissues: in the gut, IL-17 helps maintain the barrier lining, so blocking it directly removes a protective signal, while blocking IL-23 upstream does not have the same effect. The secukinumab Crohn\'s trial (lesson 9) showed exactly this. Read-across has to be checked tissue by tissue.' },
             { callout: 'When an expert argues that a target "does not matter" in a disease, ask which disease the evidence comes from. Evidence carried from psoriasis into HS, or from joints into the gut, is weaker than it sounds.', kind: 'warn' }
+          ]
+        },
+        {
+          id: 'iw4',
+          kind: 'Worked example',
+          title: 'Which number is the primary? Endpoints in the wild',
+          body: [
+            { p: 'Press releases lead with the most flattering number. Your job is to find the primary endpoint — the one the trial was designed and powered to test — and read everything else in its light. Three real examples.' },
+            { h: 'GEMINI 1 — response vs remission (Entyvio in ulcerative colitis, Feagan, NEJM 2013)' },
+            { ul: [
+              '<strong>Primary</strong>: clinical response at week 6 — 47.1% vs 25.5% (about 22 points)',
+              'Secondary: clinical remission at week 6 — 16.9% vs 5.4% (about 11 points, or "three times placebo")',
+              'Secondary: mucosal healing — 40.9% vs 24.8%'
+            ] },
+            { p: 'Notice that "three times the remission rate" and "11 points more patients in remission" describe the same result. Ratios flatter small numbers; always convert to an absolute difference.' },
+            { h: 'ADvocate 1 — the stricter primary (Ebglyss in atopic dermatitis, Silverberg, NEJM 2023)' },
+            { ul: [
+              '<strong>Primary</strong>: IGA 0/1 (clear or almost clear skin) — 43.1% vs 12.7% (about 30 points)',
+              'Key secondary: EASI-75 — 58.8% vs 16.2% (about 43 points)',
+              'Twin trial ADvocate 2: EASI-75 52.1% vs 18.1% (about 34 points)'
+            ] },
+            { p: 'The stricter primary gives a smaller number. And the twin trial landed about 9 points lower on EASI-75 — the same twin-trial spread you saw with Humira in HS.' },
+            { h: 'Measure Up 1 and 2 — twin trials of a strong drug (Rinvoq 30 mg in atopic dermatitis, Guttman-Yassky, Lancet 2021)' },
+            { ul: [
+              'Measure Up 1: EASI-75 79.7% vs 16.3% (about 63 points)',
+              'Measure Up 2: EASI-75 72.9% vs 13.3% (about 60 points)'
+            ] },
+            { p: 'With a very large effect, the twin trials agree closely in difference even though the raw drug-arm rates differ by 7 points. Large effects are robust; small ones are fragile.' },
+            { q: 'A company press release says: "Our UC drug tripled the rate of clinical remission versus placebo (9% vs 3%)." List the three questions you ask first.', a: '(1) Is remission the primary endpoint, or a secondary chosen for the headline? (2) What is the absolute difference? 6 points — below the roughly 11–21-point remission differences in the benchmark table for approved UC drugs. (3) What did the primary show, and was it significant? A tripling of a small number is still a small number.' },
+            { callout: 'Find the primary first. Convert every ratio into an absolute difference. Then compare with the benchmark table — never with the press release\'s adjective.', kind: 'warn' }
           ]
         },
         {
@@ -153,6 +296,29 @@ window.TRACKS = {
             { h: '4 · A discontinued "proof of concept"' },
             { p: 'Investors often cite a small, positive study of a drug that the big company running it later dropped. A discontinuation does not prove the drug failed — companies drop assets for portfolio reasons — but it means the people with the full data chose not to invest further. Lesson: weight a discontinued programme\'s signal down, and find out why it stopped before building a thesis on it.' },
             { callout: 'For every failure you study, write one sentence: "I could have seen this coming if I had checked ___." Those sentences become your personal checklist.', kind: '' }
+          ]
+        },
+        {
+          id: 'iw5',
+          kind: 'Worked example',
+          title: 'Power: will this trial be able to see it?',
+          body: [
+            { p: 'A trial can fail because the drug does not work — or because it was too small to detect an effect that is real. Before any readout you should know roughly how big a difference the trial can reliably detect. You do not need a statistics degree: the arithmetic below is enough to spot an underpowered trial.' },
+            { h: 'The rule of thumb' },
+            { p: 'For a responder endpoint with equal arms, 80% power and the usual 5% significance level, the patients needed per arm are roughly 7.85 × [p₁(1 − p₁) + p₂(1 − p₂)] ÷ (p₂ − p₁)², where p₁ is the placebo rate and p₂ the drug rate. What it gives:' },
+            { ul: [
+              'Placebo 5% → drug 20% (a typical UC remission gap): about 72 patients per arm',
+              'Placebo 15% → drug 45% (a typical atopic dermatitis gap): about 33 per arm',
+              'Placebo 30% → drug 50% (a strong HS result): about 90 per arm',
+              'Placebo 30% → drug 45% (a solid HS result): about 160 per arm',
+              'Placebo 30% → drug 40% (a modest HS result): about 350 per arm'
+            ] },
+            { p: 'This is why HS trials must be large and psoriasis trials can be small. A high placebo rate and a modest difference together drive the required size up sharply.' },
+            { h: 'Turning it around: power for a given trial' },
+            { p: 'With 100 patients per arm and 30% placebo, a trial has about 84% power if the drug truly reaches 50%, about 60% if it reaches 45%, and only about 43% if it reaches 42%. A trial designed for a strong effect is close to a coin flip for a merely good one.' },
+            { q: 'A Phase 2 HS trial with 40 patients per arm reports HiSCR50 55% on drug vs 38% on placebo, "not statistically significant". The stock halves. Was the drug a failure?', a: 'Not necessarily. The difference is 17 points — within the benchmark range for approved HS drugs. But with 40 per arm the standard error of the difference is about 11 points, so the 95% confidence interval runs from roughly −4 to +39 points (p ≈ 0.12). The trial could not tell "no effect" from "very good effect". It was underpowered, not negative. What would help you judge: dose response across arms, the stricter thresholds, consistency in subgroups, and whether the company will fund a properly sized trial.' },
+            { q: 'A Phase 3 HS trial has 120 patients per arm and was designed assuming placebo 30% and drug 50%. You think, from the benchmarks, a realistic result is placebo 35% and drug 45%. Roughly how likely is the trial to succeed if you are right?', a: 'Only about 36% (power for 35% vs 45% with 120 per arm). Even if the drug works modestly, the trial will more often miss than hit. This is how drugs with real activity fail Phase 3 — and why checking the design assumptions against the benchmark table is one of the highest-value things you can do before a readout.' },
+            { callout: 'Before a readout, write down the effect the trial can reliably detect. If that is bigger than the effect you realistically expect, a miss is the likely outcome — whatever the biology.', kind: 'bad' }
           ]
         },
         {
@@ -176,6 +342,18 @@ window.TRACKS = {
               'Durability: what happens at one year, and in the patients who switched from placebo?',
               'Score your prediction honestly, and note what you missed'
             ] },
+            { h: 'A worked prediction (hypothetical)' },
+            { p: 'Example Bio is about to report a Phase 2 HS trial: 200 patients randomised 1:1, primary endpoint HiSCR50 at week 16. Here is a complete entry of the kind you would log in the Decision journal the week before.' },
+            { ul: [
+              '<strong>Bar</strong>: approved drugs span about 11 points (Cosentyx) to 19–31 points (Bimzelx, Humira). To matter commercially in a crowded field, the drug needs roughly 20 points or more, plus good HiSCR75 separation',
+              '<strong>Expected placebo</strong>: about 30%, with a plausible range of 25–38% given recent trials',
+              '<strong>Power</strong>: 100 per arm gives about 84% power if the drug truly reaches 50%, about 60% at 45%, about 43% at 42%',
+              '<strong>My view of the drug</strong>: mechanism well validated, dose chosen from good exposure data; I expect about 45% on drug, 30% on placebo',
+              '<strong>Prediction</strong>: 60% chance the primary is significant; most likely difference 15 points (range 8–22); probability the difference is 20 points or more: 25%',
+              '<strong>What would change my mind</strong>: placebo above 38%; HiSCR75 not separating; a dose arm that is clearly worse than the lower dose'
+            ] },
+            { p: 'Afterwards, score each part separately — the probability, the effect estimate and the placebo estimate. Over many entries you will see which of the three you systematically get wrong.' },
+            { q: 'Example Bio reports: 47% vs 36%, p = 0.10. Score the prediction above.', a: 'The primary missed (you gave 60% to a hit — one data point, so neither right nor wrong on its own; it counts in your calibration over many predictions). Your effect estimate (15, range 8–22) captured the 11-point result. Your placebo estimate (30%) was too low — 36% was near the top of your range, and it is the main reason the trial missed. Lesson to log: in HS, assume a higher placebo rate than the older trials suggest.' },
             { callout: 'Log every prediction in the Decision journal before the data comes out. A prediction you only think about afterwards is not a prediction — it is a story.', kind: 'warn' }
           ]
         }

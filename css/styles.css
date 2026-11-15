@@ -207,3 +207,9 @@ a.inline { color: var(--accent2); }
   .bench td.num { display: inline-block; text-align: left; margin-right: 16px; }
   .bench td.num::before { content: attr(data-label); display: block; font-size: 11px; color: var(--ink-dim); }
 }
+
+/* Exercises with a reveal-on-tap answer */
+.exercise { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 14px 0; background: var(--card2); }
+.exercise .ex-q { margin-bottom: 8px; }
+.exercise summary { cursor: pointer; font-weight: 600; color: var(--accent2); }
+.exercise .ex-a { margin-top: 8px; }

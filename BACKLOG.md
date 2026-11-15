@@ -138,6 +138,8 @@ Standalone section mirroring the Atlas architecture: new `js/cases.js` (`window.
 
 ## Deep-dive tracks (NEW, user-approved 2026-11-15)
 - [x] Deep-dive tracks section (2026-11-15, ?v=71 sw btgym-v13) — new `js/tracks.js` (`window.TRACKS`), routes `#/tracks[/<id>[/<lesson>]]`, home tile + drawer + search. Two tracks: Immunology & Inflammation (6 lessons, 17 benchmark rows) and Cardiopulmonary (6 lessons, 12 rows). Each = study plan + dated `bench` table (drug vs placebo, auto-computed difference; stacks on phones) + practitioner lessons (endpoints, placebo, read-across, post-mortems, prediction drill linked to the journal). +8 glossary terms.
+- [x] Immunology track deepened (2026-11-15, ?v=73 sw btgym-v15) — 6→11 lessons (~1.8k→4.3k words): worked examples PIONEER, SUNSHINE/SUNRISE, BE HEARD, which-number-is-primary (GEMINI 1/ADvocate/Measure Up), power & sample size; q/a exercise block (details reveal) in 9 places; worked hypothetical prediction in the drill; 8-week reading list of the original papers; honest time estimate in the plan. Only verified figures used; power maths computed (normal approx).
+- [ ] Same treatment for the Cardiopulmonary track (worked examples: STELLAR/ZENITH, TOPCAT regional split, EXPLORER vs SEQUOIA)
 - [x] Verified all 29 `bench` rows vs primary sources (2026-11-15, ?v=72 sw btgym-v14) — 29/29 confirmed, none corrected; endpoint labels tightened: GEMINI 1 remission is secondary (primary = response 47 vs 26), Dupixent/Ebglyss EASI-75 key secondary (primary IGA 0/1), TRIUMPH peak vs trough (+20 vs +14 m), INCREASE mean vs median (+31 vs +21 m), DELIVER driven by worsening HF
 
 ## Atlas roadmap (remaining)

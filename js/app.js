@@ -57,6 +57,7 @@ function block(b) {
   if (b.h) return '<h3>' + b.h + '</h3>';
   if (b.ul) return '<ul>' + b.ul.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
   if (b.callout != null) return '<div class="callout ' + (b.kind || '') + '">' + b.callout + '</div>';
+  if (b.q) return '<div class="exercise"><div class="ex-q"><span class="tag">Exercise</span> ' + b.q + '</div><details><summary>Show answer</summary><div class="ex-a">' + b.a + '</div></details></div>';
   return '';
 }
 
@@ -575,6 +576,7 @@ function lessonText(l) {
     if (b.h) return b.h;
     if (b.ul) return b.ul.join(' ');
     if (b.callout != null) return b.callout;
+    if (b.q) return b.q + ' ' + b.a;
     return '';
   }).join(' ');
 }
@@ -802,7 +804,10 @@ function viewTrack(tid) {
     + (t.atlas ? '<button class="btn ghost small" data-nav="#/atlas/A/' + t.atlas + '">Area overview in the Atlas</button>' : '') + '</div>'
     + benchPanel(t.bench)
     + '<h3 style="margin:18px 4px 6px">Lessons</h3>'
-    + t.lessons.map(function (l, i) { return '<div class="card mod" data-nav="#/tracks/' + t.id + '/' + l.id + '"><div class="meta"><div class="t">' + (i + 1) + '. ' + l.title + '</div></div></div>'; }).join('')
+    + t.lessons.map(function (l, i) { return '<div class="card mod" data-nav="#/tracks/' + t.id + '/' + l.id + '"><div class="meta"><div class="t">' + (i + 1) + '. ' + l.title + (l.kind ? ' <span class="tag">' + l.kind + '</span>' : '') + '</div></div></div>'; }).join('')
+    + (t.reading ? '<h3 style="margin:18px 4px 6px">Reading list</h3><div class="card"><p class="small muted">' + t.reading.intro + '</p>' + t.reading.weeks.map(function (w) {
+      return '<div class="check"><span><strong>' + w.week + '</strong><div class="muted small" style="margin-top:4px">' + w.task + '</div><ul class="small">' + w.papers.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></span></div>';
+    }).join('') + '</div>' : '')
     + '<div class="spacer"></div><button class="btn ghost small" data-nav="#/tracks">Back to tracks</button>';
 }
 
